@@ -8,6 +8,7 @@ const statusEl = document.querySelector('#status');
 
 let editor = null;
 let currentFile = null;
+let currentKind = 'html'; // 'html' | 'screens'
 
 function setStatus(message) {
   statusEl.textContent = message;
@@ -42,29 +43,47 @@ async function apiPost(url, body) {
 }
 
 /*
-  현재 편집 상태를 HTML로 export 해서 sample/원본.html에 덮어쓴다.
-  autosave(onSave)와 수동 저장 버튼이 공통으로 사용한다.
+  편집 결과를 디스크에 반영한다. autosave(onSave)와 수동 저장 버튼이 공통 사용.
+
+  - 'screens' : SCREENS 기반 SPA. 각 GrapesJS 페이지 = 한 화면.
+                페이지별 body HTML을 모아 서버가 원본 SCREENS[i].body에 재주입.
+  - 'html'    : 일반 HTML 파일. 전체 문서를 재조립해 그대로 저장.
 */
-async function exportHtml(editorInstance) {
-  if (!editorInstance || !currentFile) {
+async function saveToDisk(ed) {
+  if (!ed || !currentFile) {
     return;
   }
 
-  const files = await editorInstance.runCommand('studio:projectFiles', {
-    styles: 'inline',
-    skipProject: true
-  });
+  if (currentKind === 'screens') {
+    const pages = ed.Pages.getAll().map((page) => ({
+      // 페이지 이름 = 화면 id (서버 로드 시 그렇게 지정함)
+      id: page.getName() || page.getId(),
+      html: ed.getHtml({ component: page.getMainComponent() })
+    }));
 
-  const htmlFile = files.find((file) => file.mimeType === 'text/html');
-
-  if (!htmlFile) {
-    throw new Error('export된 HTML 파일을 찾지 못했습니다.');
+    await apiPost('/api/export-html', { file: currentFile, pages });
+    return;
   }
 
-  await apiPost('/api/export-html', {
-    file: currentFile,
-    html: htmlFile.content
-  });
+  // 일반 HTML: 단일 페이지를 전체 문서로 재조립
+  const page = ed.Pages.getAll()[0] ?? ed.Pages.getSelected();
+  const component = page ? page.getMainComponent() : undefined;
+
+  const bodyHtml = ed.getHtml(component ? { component } : undefined);
+  const css = ed.getCss(component ? { component } : undefined) || '';
+
+  const doc = `<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>${css}</style>
+  </head>
+  <body>${bodyHtml}</body>
+</html>
+`;
+
+  await apiPost('/api/export-html', { file: currentFile, html: doc });
 }
 
 /*
@@ -104,11 +123,13 @@ async function initEditor(file) {
   setStatus(`${file} 로딩 중...`);
 
   // 항상 디스크의 .html을 단일 진실 원본으로 로드한다.
-  const { project } = await apiGet(
+  const { project, kind } = await apiGet(
     `/api/project?file=${encodeURIComponent(file)}`
   );
 
-  editor = await createStudioEditor({
+  currentKind = kind || 'html';
+
+  await createStudioEditor({
     root: '#studio',
 
     /*
@@ -121,6 +142,11 @@ async function initEditor(file) {
       type: 'web'
     },
 
+    // createStudioEditor는 void를 반환하므로 인스턴스는 콜백으로 받는다.
+    onEditor: (ed) => {
+      editor = ed;
+    },
+
     storage: {
       type: 'self',
       autosaveChanges: 10,
@@ -130,24 +156,32 @@ async function initEditor(file) {
         return { project };
       },
 
-      // 수정 내용을 곧바로 원본 sample/*.html에 반영한다.
-      onSave: async ({ editor: cbEditor }) => {
-        await exportHtml(cbEditor ?? editor);
-        setStatus(`${currentFile} HTML 반영 완료`);
+      // 수정 내용을 곧바로 원본 파일에 반영한다.
+      onSave: async ({ editor: ed }) => {
+        await saveToDisk(ed ?? editor);
+        const label =
+          currentKind === 'screens'
+            ? `${currentFile} SCREENS 반영 완료`
+            : `${currentFile} HTML 반영 완료`;
+        setStatus(label);
       }
     }
   });
 
-  setStatus(`${file} 편집 준비 완료`);
+  const hint =
+    currentKind === 'screens'
+      ? `${file} 편집 준비 완료 — 좌측 페이지 목록에서 화면을 전환하세요`
+      : `${file} 편집 준비 완료`;
+  setStatus(hint);
 }
 
-async function exportCurrentHtml() {
+async function saveNow() {
   if (!editor || !currentFile) {
     return;
   }
 
-  setStatus(`${currentFile} HTML export 중...`);
-  await exportHtml(editor);
+  setStatus(`${currentFile} 저장 중...`);
+  await saveToDisk(editor);
   setStatus(`sample/${currentFile} 저장 완료`);
 }
 
@@ -160,7 +194,7 @@ fileSelect.addEventListener('change', () => {
 
 saveBtn.addEventListener('click', async () => {
   try {
-    await exportCurrentHtml();
+    await saveNow();
   } catch (error) {
     console.error(error);
     setStatus(error.message);
