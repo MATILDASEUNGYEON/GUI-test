@@ -1,0 +1,15 @@
+{
+  "name": "grapesjs-sample-html-editor",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs"
+  },
+  "dependencies": {
+    "@grapesjs/studio-sdk": "latest",
+    "@vitejs/plugin-basic-ssl": "latest",
+    "express": "latest"
+  },
+  "devDependencies": {
+    "vite": "latest"
+  }
+}

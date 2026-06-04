@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>화면설계서 · 저작권침해 국제공조수사 플랫폼</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="index,follow">
+  <meta name="generator" content="GrapesJS Studio">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>* { box-sizing: border-box; } body {margin: 0;}:root{--ink:#0d1117;--ink2:#161b22;--ink3:#1c2333;--line:#2a3142;--line2:#39425a;--txt:#e6e9f0;--txt2:#9aa4b8;--txt3:#697185;--accent:#3dd6c4;--accent2:#5b9bff;--amber:#f5b945;--rose:#ff6b81;--c-com:#5b9bff;--c-inv:#3dd6c4;--c-mgr:#c9a4ff;--c-adm:#f5b945;--c-rsc:#7fd17a;--c-cph:#ff8fa3;--c-sys:#94a0b5;--canvas:#f4f6fb;--wf-line:#cdd4e0;--wf-line2:#dee3ec;--wf-txt:#2b3344;--wf-mut:#8b93a6;--wf-accent:#1f8a7c;--mono:'JetBrains Mono',monospace;--sans:'Pretendard',sans-serif;}*{box-sizing:border-box;margin:0;padding:0;}html, body{height:100%;}body{font-family:var(--sans);background:var(--ink);color:var(--txt);overflow:hidden;-webkit-font-smoothing:antialiased;font-feature-settings:"tnum";}.topbar{height:58px;background:linear-gradient(90deg,var(--ink2),var(--ink3));border-bottom:1px solid var(--line);display:flex;align-items:center;gap:18px;padding:0 20px;position:relative;z-index:10;}.topbar .hex{font-size:20px;color:var(--accent);}.topbar h1{font-size:15px;font-weight:700;letter-spacing:-.2px;}.topbar h1 small{display:block;font-size:10.5px;font-weight:400;color:var(--txt2);letter-spacing:.5px;font-family:var(--mono);}.topbar .spacer{flex:1;}.topbar .chip{font-family:var(--mono);font-size:10.5px;color:var(--txt2);border:1px solid var(--line2);padding:4px 9px;border-radius:20px;background:rgba(255,255,255,.02);}.topbar .chip b{color:var(--accent);}.legend{display:flex;gap:10px;align-items:center;}.legend span{font-size:10.5px;color:var(--txt2);display:flex;align-items:center;gap:5px;font-family:var(--mono);}.legend i{width:9px;height:9px;border-radius:3px;display:inline-block;}.shell{display:grid;grid-template-columns:280px 1fr 380px;height:calc(100vh - 58px);}.pane{overflow-y:auto;height:100%;}.pane::-webkit-scrollbar{width:9px;}.pane::-webkit-scrollbar-thumb{background:var(--line2);border-radius:9px;border:2px solid var(--ink);}.pane::-webkit-scrollbar-track{background:transparent;}.nav{background:var(--ink2);border-right:1px solid var(--line);}.nav .search{padding:14px 14px 8px;}.nav .search input{width:100%;background:var(--ink);border:1px solid var(--line2);border-radius:9px;padding:9px 12px;color:var(--txt);font-family:var(--sans);font-size:13px;outline:none;}.nav .search input:focus{border-color:var(--accent);}.nav .search input::placeholder{color:var(--txt3);}.navgroup{margin:6px 0;}.navgroup>.gh{display:flex;align-items:center;gap:8px;padding:9px 16px;font-size:11px;font-weight:700;letter-spacing:.6px;color:var(--txt2);text-transform:uppercase;font-family:var(--mono);cursor:default;}.navgroup>.gh i{width:8px;height:8px;border-radius:2px;}.navitem{display:flex;flex-direction:column;gap:2px;padding:9px 16px 9px 32px;cursor:pointer;border-left:2px solid transparent;transition:.12s;}.navitem:hover{background:rgba(255,255,255,.03);}.navitem.active{background:rgba(61,214,196,.08);border-left-color:var(--accent);}.navitem .t{font-size:13px;font-weight:500;color:var(--txt);}.navitem.active .t{color:var(--accent);}.navitem .id{font-size:10px;font-family:var(--mono);color:var(--txt3);}.navitem.hide{display:none;}.navfoot{padding:14px 16px;font-size:10.5px;color:var(--txt3);font-family:var(--mono);border-top:1px solid var(--line);margin-top:8px;}.canvas{background:radial-gradient(circle at 1px 1px, rgba(255,255,255,.04) 1px, transparent 0) 0 0/22px 22px,
+  var(--ink);display:flex;flex-direction:column;align-items:center;padding:26px 26px 60px;}.crumb{align-self:stretch;display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;}.crumb .role{font-family:var(--mono);font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;}.crumb h2{font-size:18px;font-weight:700;letter-spacing:-.3px;}.crumb .ids{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap;}.crumb .idtag{font-family:var(--mono);font-size:10.5px;color:var(--txt2);border:1px solid var(--line2);padding:3px 8px;border-radius:5px;background:var(--ink2);}.crumb .idtag b{color:var(--accent);}.crumb .method{font-family:var(--mono);font-size:10.5px;font-weight:700;color:var(--ink);background:var(--accent);padding:3px 8px;border-radius:5px;}.frame{width:100%;max-width:980px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.7),0 0 0 1px var(--line2);animation:rise .35s ease;}.frame .bar{height:36px;background:#e9edf4;display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid var(--wf-line2);}.frame .bar .d{width:11px;height:11px;border-radius:50%;}.frame .bar .d:nth-child(1){background:#ff6058;}.frame .bar .d:nth-child(2){background:#ffbd2e;}.frame .bar .d:nth-child(3){background:#28c840;}.frame .bar .url{margin-left:12px;flex:1;background:#fff;border-radius:6px;height:22px;display:flex;align-items:center;padding:0 11px;font-family:var(--mono);font-size:11px;color:var(--wf-mut);}.frame .view{background:var(--canvas);min-height:520px;}.flowhint{margin-top:22px;max-width:980px;width:100%;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--txt2);}.flowhint .lbl{font-family:var(--mono);font-size:10.5px;color:var(--txt3);text-transform:uppercase;letter-spacing:.5px;}.flowhint button{font-family:var(--sans);font-size:12px;color:var(--accent2);background:rgba(91,155,255,.1);border:1px solid rgba(91,155,255,.3);padding:5px 11px;border-radius:7px;cursor:pointer;transition:.12s;}.flowhint button:hover{background:rgba(91,155,255,.2);}.spec{background:var(--ink2);border-left:1px solid var(--line);padding:22px 20px 60px;}.spec h3{font-size:11px;font-family:var(--mono);font-weight:700;letter-spacing:.7px;color:var(--accent);text-transform:uppercase;margin:22px 0 11px;display:flex;align-items:center;gap:8px;}.spec h3:first-child{margin-top:0;}.spec h3::before{content:"";width:4px;height:12px;background:var(--accent);border-radius:2px;}.spec .desc{font-size:13px;line-height:1.65;color:var(--txt);background:var(--ink3);border:1px solid var(--line);border-radius:10px;padding:13px 14px;}.spec .kv{display:flex;flex-direction:column;gap:7px;}.spec .kv .row{display:flex;gap:8px;font-size:12px;align-items:baseline;}.spec .kv .row .k{font-family:var(--mono);color:var(--txt3);min-width:64px;font-size:11px;}.spec .kv .row .v{color:var(--txt);font-family:var(--mono);font-size:11.5px;}.entries{display:flex;flex-wrap:wrap;gap:6px;}.entries button{font-size:11.5px;font-family:var(--sans);color:var(--txt);background:var(--ink3);border:1px solid var(--line2);padding:5px 10px;border-radius:7px;cursor:pointer;transition:.12s;}.entries button:hover{border-color:var(--accent);color:var(--accent);}.entries .none{font-size:11.5px;color:var(--txt3);font-family:var(--mono);}.itable{display:flex;flex-direction:column;gap:8px;}.icard{background:var(--ink3);border:1px solid var(--line);border-radius:10px;padding:11px 12px;position:relative;}.icard .trig{font-size:12.5px;font-weight:600;color:var(--txt);display:flex;align-items:center;gap:7px;}.icard .trig::before{content:"▸";color:var(--accent);}.icard .act{font-size:12px;color:var(--txt2);line-height:1.5;margin:5px 0 0 14px;}.icard .tags{display:flex;gap:6px;margin:8px 0 0 14px;flex-wrap:wrap;align-items:center;}.icard .cnd{font-size:10.5px;font-family:var(--mono);color:var(--amber);background:rgba(245,185,69,.1);padding:2px 7px;border-radius:5px;}.icard .api{font-size:10.5px;font-family:var(--mono);color:var(--accent2);background:rgba(91,155,255,.1);padding:2px 7px;border-radius:5px;}.icard .go{font-size:10.5px;font-family:var(--sans);color:var(--accent);background:rgba(61,214,196,.1);border:1px solid rgba(61,214,196,.3);padding:2px 8px;border-radius:5px;cursor:pointer;margin-left:auto;}.icard .go:hover{background:rgba(61,214,196,.25);}.bullets{list-style:none;display:flex;flex-direction:column;gap:7px;}.bullets li{font-size:12px;line-height:1.5;color:var(--txt2);padding-left:16px;position:relative;}.bullets li::before{content:"—";position:absolute;left:0;color:var(--txt3);}.bullets.warn li::before{content:"!";color:var(--rose);font-weight:700;}.bullets.warn li{color:var(--txt2);}.view *{font-family:var(--sans);}.wf-app{display:flex;flex-direction:column;min-height:520px;color:var(--wf-txt);}.wf-appbar{height:48px;background:#fff;border-bottom:1px solid var(--wf-line);display:flex;align-items:center;gap:16px;padding:0 16px;}.wf-brand{font-weight:700;font-size:13.5px;color:var(--wf-accent);cursor:pointer;}.wf-appnav{display:flex;gap:4px;}.wf-navlink{font-size:12.5px;color:var(--wf-mut);background:none;border:none;padding:6px 10px;border-radius:7px;cursor:pointer;}.wf-navlink:hover{background:#eef1f7;color:var(--wf-txt);}.wf-navlink.on{color:var(--wf-accent);background:#e3f4f1;font-weight:600;}.wf-appright{margin-left:auto;display:flex;align-items:center;gap:6px;}.wf-iconbtn{position:relative;background:#eef1f7;border:none;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:14px;}.wf-iconbtn:hover{background:#e1e6ef;}.wf-dot{position:absolute;top:-4px;right:-4px;background:var(--rose);color:#fff;font-size:9px;font-family:var(--mono);min-width:15px;height:15px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0 3px;}.wf-avatar{width:32px;height:32px;border-radius:50%;background:var(--wf-accent);color:#fff;border:none;font-family:var(--mono);font-size:10px;font-weight:700;cursor:pointer;}.wf-appbody{flex:1;background:var(--canvas);}.wf-page{padding:22px 24px;display:flex;flex-direction:column;gap:14px;}.wf-page.narrow{max-width:620px;}.wf-pagehead{display:flex;align-items:center;gap:12px;}.wf-rolebtns{margin-left:auto;display:flex;gap:8px;align-items:center;}.wf-h1{font-size:21px;font-weight:700;text-align:center;}.wf-h2{font-size:18px;font-weight:700;}.wf-h3{font-size:13.5px;font-weight:700;margin-top:6px;color:var(--wf-txt);display:flex;align-items:center;gap:8px;}.wf-sub{font-size:12px;color:var(--wf-mut);text-align:center;margin-bottom:6px;}.wf-muted{color:var(--wf-mut);font-weight:400;font-size:12px;}.wf-lockhint{font-size:11px;color:var(--wf-mut);font-weight:400;}.wf-center{min-height:520px;display:flex;align-items:center;justify-content:center;padding:30px;}.wf-authcard{background:#fff;border:1px solid var(--wf-line);border-radius:14px;padding:30px 30px;width:340px;display:flex;flex-direction:column;gap:11px;box-shadow:0 12px 40px -16px rgba(30,40,70,.2);}.wf-authcard.wide{width:520px;}.wf-logo{font-size:30px;text-align:center;color:var(--wf-accent);}.wf-field{display:flex;flex-direction:column;gap:5px;}.wf-field label{font-size:11.5px;font-weight:600;color:var(--wf-txt);}.wf-input{border:1px solid var(--wf-line);background:#fbfcfe;border-radius:8px;padding:9px 11px;font-size:12.5px;color:var(--wf-mut);min-height:36px;display:flex;align-items:center;cursor:pointer;transition:.12s;}.wf-input:hover{border-color:var(--wf-accent);}.wf-input.dis{background:#eef1f7;cursor:default;}.wf-input.flex{flex:1;}.wf-select{border:1px solid var(--wf-line);background:#fbfcfe;border-radius:8px;padding:9px 11px;font-size:12.5px;color:var(--wf-txt);min-height:36px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;}.wf-select.sm{padding:5px 9px;min-height:0;font-size:11.5px;display:inline-flex;gap:8px;}.wf-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.wf-btn{border:none;border-radius:9px;padding:10px 16px;font-size:13px;font-weight:600;cursor:pointer;transition:.12s;background:#e7ebf2;color:var(--wf-txt);}.wf-btn:hover{filter:brightness(.97);}.wf-btn.primary{background:var(--wf-accent);color:#fff;}.wf-btn.primary:hover{background:#1a766a;}.wf-btn.ghost{background:#fff;border:1px solid var(--wf-line);color:var(--wf-txt);}.wf-btn.warn{background:#fdecee;color:#c0394e;border:1px solid #f6c9d0;}.wf-btn.agent{background:#11202e;color:#7fe7d8;width:100%;font-family:var(--mono);font-size:12px;}.wf-btn.agent:hover{background:#16293a;}.wf-btn.sm{padding:6px 12px;font-size:11.5px;}.wf-btn.dis{opacity:.45;cursor:not-allowed;}.wf-rowend{display:flex;gap:10px;justify-content:flex-end;margin-top:8px;}.wf-authlinks{display:flex;justify-content:space-between;font-size:11.5px;color:var(--wf-mut);margin-top:2px;}.wf-authlinks .lk{color:var(--wf-accent);cursor:pointer;font-weight:600;}.wf-cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}.wf-minicard{background:#fff;border:1px solid var(--wf-line);border-radius:11px;padding:13px;cursor:pointer;display:flex;flex-direction:column;gap:6px;transition:.14s;}.wf-minicard:hover{border-color:var(--wf-accent);transform:translateY(-2px);box-shadow:0 8px 22px -12px rgba(30,40,70,.3);}.wf-minicard b{font-size:13px;}.wf-minicard span{font-size:11px;color:var(--wf-mut);}.wf-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--wf-line);border-radius:11px;overflow:hidden;font-size:12px;}.wf-table th{background:#f0f3f8;text-align:left;padding:10px 12px;font-size:11px;font-weight:700;color:var(--wf-mut);border-bottom:1px solid var(--wf-line);}.wf-table td{padding:11px 12px;border-bottom:1px solid var(--wf-line2);color:var(--wf-txt);}.wf-table tr:last-child td{border-bottom:none;}.wf-table tr[data-goto]{cursor:pointer;transition:.1s;}.wf-table tr[data-goto]:hover td{background:#f3f9f8;}.wf-tag{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:20px;display:inline-block;font-family:var(--mono);}.wf-tag.inv{background:#dff5f1;color:#17776a;}.wf-tag.mgr{background:#efe6ff;color:#7a4fd0;}.wf-tag.sec{background:#fff1d6;color:#a9760c;}.wf-tag.rsc{background:#e3f6e1;color:#3f8a38;}.wf-pill{font-size:10.5px;font-family:var(--mono);color:var(--wf-accent);background:#e3f4f1;padding:4px 10px;border-radius:20px;}.wf-infogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;background:#fff;border:1px solid var(--wf-line);border-radius:11px;padding:14px;}.wf-infogrid>div{display:flex;flex-direction:column;gap:3px;}.wf-infogrid span{font-size:10.5px;color:var(--wf-mut);}.wf-infogrid b{font-size:13px;}.wf-ph{background:#fff;border:1px dashed var(--wf-line);border-radius:10px;padding:14px;font-size:12px;color:var(--wf-mut);line-height:1.6;}.wf-ph.tall{min-height:88px;}.wf-radios{display:flex;gap:8px;flex-wrap:wrap;}.wf-checks{display:flex;gap:8px;flex-wrap:wrap;flex-direction:column;}.wf-radio{font-size:11.5px;border:1px solid var(--wf-line);border-radius:8px;padding:7px 12px;color:var(--wf-mut);background:#fff;cursor:pointer;}.wf-check{font-size:11.5px;border:1px solid var(--wf-line);border-radius:8px;padding:7px 12px;color:var(--wf-mut);background:#fff;cursor:pointer;}.wf-radio.on{border-color:var(--wf-accent);background:#e3f4f1;color:var(--wf-accent);font-weight:600;}.wf-check.on{border-color:var(--wf-accent);background:#e3f4f1;color:var(--wf-accent);font-weight:600;}.wf-upload{border:1px dashed var(--wf-line);border-radius:10px;padding:18px;text-align:center;font-size:12px;color:var(--wf-mut);background:#fbfcfe;}.wf-tabs{display:flex;gap:4px;align-items:center;border-bottom:1px solid var(--wf-line);padding-bottom:0;}.wf-tab{font-size:12.5px;padding:9px 14px;color:var(--wf-mut);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;}.wf-tab.on{color:var(--wf-accent);border-bottom-color:var(--wf-accent);font-weight:700;}.wf-flexsp{flex:1;}.wf-meta{font-size:11.5px;color:var(--wf-mut);font-family:var(--mono);}.wf-fileitem{background:#fff;border:1px solid var(--wf-line);border-radius:9px;padding:11px 13px;font-size:12.5px;cursor:pointer;transition:.12s;}.wf-fileitem:hover{border-color:var(--wf-accent);background:#f7fbfa;}.wf-fileitem.dis{cursor:default;background:#f0f3f8;}.wf-notif{background:#fff;border:1px solid var(--wf-line);border-radius:10px;padding:12px 14px;font-size:12.5px;cursor:pointer;position:relative;transition:.12s;color:var(--wf-mut);}.wf-notif b{color:var(--wf-txt);margin-right:6px;}.wf-notif:hover{border-color:var(--wf-accent);}.wf-notif.unread{background:#f1f9f8;border-color:#cfe9e4;}.wf-notif.unread::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--wf-accent);border-radius:3px 0 0 3px;}.wf-time{position:absolute;right:14px;top:13px;font-size:10.5px;color:var(--wf-mut);font-family:var(--mono);}.wf-msg{display:flex;height:472px;}.wf-msglist{width:230px;border-right:1px solid var(--wf-line);background:#fff;overflow:auto;}.wf-msgitem{padding:13px 14px;border-bottom:1px solid var(--wf-line2);font-size:12px;cursor:pointer;position:relative;color:var(--wf-mut);}.wf-msgitem b{color:var(--wf-txt);font-size:12.5px;}.wf-msgitem.on{background:#f1f9f8;}.wf-msgitem:hover{background:#f7fbfa;}.wf-badge2{position:absolute;right:14px;top:13px;background:var(--rose);color:#fff;font-size:9px;font-family:var(--mono);min-width:16px;height:16px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;}.wf-msgchat{flex:1;display:flex;flex-direction:column;background:var(--canvas);}.wf-msgchead{padding:13px 16px;border-bottom:1px solid var(--wf-line);font-size:12.5px;font-weight:700;background:#fff;}.wf-bubbles{flex:1;padding:16px;display:flex;flex-direction:column;gap:9px;overflow:auto;}.wf-bub{max-width:72%;padding:9px 13px;border-radius:13px;font-size:12.5px;line-height:1.5;}.wf-bub.in{background:#fff;border:1px solid var(--wf-line);align-self:flex-start;border-bottom-left-radius:4px;}.wf-bub.out{background:var(--wf-accent);color:#fff;align-self:flex-end;border-bottom-right-radius:4px;}.wf-msginput{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--wf-line);background:#fff;align-items:center;}.wf-profrow{display:flex;align-items:center;gap:14px;}.wf-circle{width:64px;height:64px;border-radius:50%;background:#eef1f7;border:1px dashed var(--wf-line);display:flex;align-items:center;justify-content:center;font-size:22px;}.wf-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}.wf-kpi{background:#fff;border:1px solid var(--wf-line);border-radius:12px;padding:16px;text-align:center;}.wf-kpi b{font-size:26px;font-weight:800;color:var(--wf-accent);display:block;}.wf-kpi span{font-size:11px;color:var(--wf-mut);}.wf-charts{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.wf-chart{background:#fff;border:1px solid var(--wf-line);border-radius:12px;padding:16px;}.wf-charttitle{font-size:12px;font-weight:700;margin-bottom:14px;}.wf-bars{display:flex;align-items:flex-end;gap:14px;height:120px;}.wf-bars i{flex:1;background:linear-gradient(180deg,#3dd6c4,#1f8a7c);border-radius:6px 6px 0 0;min-height:10px;}.wf-line{height:120px;border-radius:8px;background:linear-gradient(180deg,transparent 60%,rgba(31,138,124,.12)),
+  repeating-linear-gradient(90deg,var(--wf-line2) 0 1px,transparent 1px 40px);position:relative;overflow:hidden;}.wf-line::after{content:"";position:absolute;left:0;right:0;top:40%;height:2px;background:linear-gradient(90deg,transparent,var(--wf-accent),transparent);box-shadow:0 0 0 0 var(--wf-accent);clip-path:polygon(0 60%,15% 40%,30% 55%,45% 25%,60% 45%,75% 20%,100% 35%,100% 100%,0 100%);}.wf-nodes{display:flex;gap:12px;align-items:center;height:120px;justify-content:center;}.wf-nodes i{width:34px;height:34px;border-radius:50%;background:#eef1f7;border:2px solid var(--wf-line);}.wf-nodes i.on{background:#dff5f1;border-color:var(--wf-accent);}.wf-tags{display:flex;gap:6px;flex-wrap:wrap;}.wf-tag2{font-size:11px;background:#eef1f7;border:1px solid var(--wf-line);border-radius:7px;padding:6px 10px;color:var(--wf-txt);}.wf-tag2.add{cursor:pointer;color:var(--wf-accent);border-style:dashed;}.wf-rulebox{background:#fff7e6;border:1px solid #f3dca0;border-radius:9px;padding:10px 13px;font-size:11.5px;color:#8a6a18;}.wf-reviewbox{background:#fff;border:1px solid var(--wf-line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:11px;margin-top:6px;}.wf-modaltext{font-size:12.5px;color:var(--wf-txt);background:#f0f3f8;border-radius:8px;padding:11px 13px;font-style:italic;}.wf-modal{background:#fff;border:1px solid var(--wf-line);border-radius:14px;padding:26px;width:420px;display:flex;flex-direction:column;gap:14px;box-shadow:0 20px 60px -20px rgba(30,40,70,.35);}.wf-adminbar{font-family:var(--mono);font-size:11.5px;color:#a9760c;background:#fff7e6;border:1px solid #f3dca0;border-radius:8px;padding:7px 12px;font-weight:700;}.wf-toaststack{display:flex;flex-direction:column;gap:12px;width:400px;}.wf-toast{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--wf-line);border-radius:11px;padding:13px 15px;font-size:12.5px;color:var(--wf-mut);box-shadow:0 10px 30px -14px rgba(30,40,70,.3);position:relative;overflow:hidden;}.wf-toast::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;}.wf-toast .ic{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;flex-shrink:0;font-weight:700;}.wf-toast b{font-weight:700;color:var(--wf-txt);margin-right:4px;}.wf-toast .x{margin-left:auto;color:var(--wf-mut);cursor:pointer;font-size:11px;}.wf-toast.ok::before{background:#1f9d74;}.wf-toast.ok .ic{background:#1f9d74;}.wf-toast.err::before{background:#d6435a;}.wf-toast.err .ic{background:#d6435a;}.wf-toast.warn::before{background:#dca017;}.wf-toast.warn .ic{background:#dca017;}.wf-alerticon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;margin:0 auto;}.wf-alerticon.warn{background:#fff1d6;color:#c08a14;}.wf-alerticon.danger{background:#fdecee;color:#c0394e;}.wf-variantnote{font-size:10.5px;color:var(--wf-mut);font-family:var(--mono);text-align:center;border-top:1px dashed var(--wf-line);padding-top:10px;margin-top:4px;line-height:1.6;}.wf-dropdown{position:absolute;top:8px;background:#fff;border:1px solid var(--wf-line);border-radius:12px;box-shadow:0 18px 48px -16px rgba(30,40,70,.4);width:288px;overflow:hidden;z-index:5;animation:rise .2s ease;}.wf-dropdown.notif{right:54px;}.wf-dropdown.prof{right:14px;width:220px;}.wf-ddhead{padding:11px 14px;font-size:12px;font-weight:700;border-bottom:1px solid var(--wf-line2);display:flex;align-items:center;color:var(--wf-txt);}.wf-ddhead .all{margin-left:auto;font-size:11px;color:var(--wf-accent);cursor:pointer;font-weight:600;}.wf-dditem{padding:11px 14px;font-size:12px;border-bottom:1px solid var(--wf-line2);cursor:pointer;}.wf-dditem:last-child{border-bottom:none;}.wf-dditem:hover{background:#f3f9f8;}.wf-dditem b{color:var(--wf-txt);display:block;font-size:12px;margin-bottom:2px;}.wf-dditem small{font-size:10.5px;color:var(--wf-mut);font-family:var(--mono);}.wf-profcard{display:flex;gap:10px;align-items:center;padding:13px 14px;border-bottom:1px solid var(--wf-line2);}.wf-profcard b{font-size:13px;display:block;}.wf-profcard small{font-size:11px;color:var(--wf-mut);}.wf-circle.sm{width:38px;height:38px;font-size:16px;}.wf-menuitem{padding:11px 14px;font-size:12.5px;cursor:pointer;display:flex;gap:9px;align-items:center;color:var(--wf-txt);}.wf-menuitem:hover{background:#f3f9f8;}.wf-menuitem.danger{color:#c0394e;border-top:1px solid var(--wf-line2);}.wf-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:360px;text-align:center;}.wf-empty .eic{font-size:46px;opacity:.5;}.wf-empty .et{font-size:15px;font-weight:700;color:var(--wf-txt);}.wf-empty .es{font-size:12.5px;color:var(--wf-mut);line-height:1.6;}.wf-errpage{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;min-height:520px;text-align:center;padding:30px;}.wf-errcode{font-family:var(--mono);font-size:66px;font-weight:800;color:var(--wf-line);letter-spacing:3px;line-height:1;}.wf-errttl{font-size:18px;font-weight:700;color:var(--wf-txt);}.wf-errsub{font-size:12.5px;color:var(--wf-mut);max-width:380px;line-height:1.65;}.wf-loadwrap{min-height:520px;display:flex;align-items:center;justify-content:center;background:rgba(15,22,32,.45);}.wf-loadbox{background:#fff;border-radius:14px;padding:28px 38px;display:flex;flex-direction:column;align-items:center;gap:14px;box-shadow:0 20px 60px -20px rgba(0,0,0,.4);}.wf-spinner{width:38px;height:38px;border-radius:50%;border:3px solid var(--wf-line2);border-top-color:var(--wf-accent);animation:spin .8s linear infinite;}.wf-loadtxt{font-size:13.5px;font-weight:700;color:var(--wf-txt);}.wf-loadsub{font-size:11px;color:var(--wf-mut);font-family:var(--mono);}.wf-toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}.wf-searchbox{flex:1;min-width:170px;border:1px solid var(--wf-line);background:#fbfcfe;border-radius:8px;padding:8px 11px;font-size:12px;color:var(--wf-mut);display:flex;align-items:center;gap:7px;}.wf-pager{display:flex;gap:6px;align-items:center;justify-content:center;margin-top:4px;}.wf-pg{min-width:30px;height:30px;border:1px solid var(--wf-line);background:#fff;border-radius:7px;font-size:12px;color:var(--wf-mut);display:flex;align-items:center;justify-content:center;cursor:pointer;}.wf-pg.on{border-color:var(--wf-accent);background:#e3f4f1;color:var(--wf-accent);font-weight:700;}.wf-segtabs{display:flex;background:#eef1f7;border-radius:9px;padding:3px;gap:3px;}.wf-segtab{flex:1;text-align:center;font-size:12px;padding:7px;border-radius:7px;cursor:pointer;color:var(--wf-mut);}.wf-segtab.on{background:#fff;color:var(--wf-accent);font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.08);}.wf-agent{min-height:520px;background:#0f1620;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;}.wf-agent .wf-field label{color:#9fb0c0;}.wf-agenthead{font-family:var(--mono);font-size:14px;color:#7fe7d8;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:10px;}.wf-agentbadge{font-size:9.5px;background:#16293a;color:#7fe7d8;padding:3px 8px;border-radius:5px;border:1px solid #234156;}.wf-agentbody{background:#16202c;border:1px solid #24323f;border-radius:14px;padding:24px;width:520px;display:flex;flex-direction:column;gap:13px;}.wf-agent .wf-input{background:#0f1822;border-color:#24323f;color:#8fa3b3;}.wf-agent .wf-input.dis{background:#13202c;}.wf-agent .wf-upload{background:#0f1822;border-color:#2b3a48;color:#8fa3b3;}.wf-agent .wf-check{background:#0f1822;border-color:#2b3a48;color:#8fa3b3;}.wf-agent .wf-check.on{background:#11302b;border-color:#2c8175;color:#7fe7d8;}.wf-agentsteps{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:10.5px;font-family:var(--mono);color:#5f7689;justify-content:center;padding:6px 0;}.wf-agentsteps.sm{color:var(--wf-mut);}.wf-step{padding:5px 10px;border-radius:7px;border:1px solid #2b3a48;color:#7e93a4;}.wf-step.on{background:#11302b;border-color:#2c8175;color:#7fe7d8;}.wf-agentsteps.sm .wf-step{border-color:var(--wf-line);color:var(--wf-mut);}.wf-agentsteps.sm .wf-step.on{background:#e3f4f1;border-color:var(--wf-accent);color:var(--wf-accent);}.wf-agent .wf-rowend .wf-btn.ghost{background:#0f1822;border-color:#2b3a48;color:#9fb0c0;}.wf-agent .wf-btn.primary{background:#2c8175;}@keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}@keyframes spin{to{transform:rotate(360deg);}}@media (max-width:1200px){.shell{grid-template-columns:240px 1fr 330px;}}</style>
+  </head>
+  <body><div class="topbar"><span class="hex">⬡</span><h1>화면설계서<small>저작권침해 국제공조수사 플랫폼 · WIREFRAME SPEC</small></h1><div class="spacer"></div><div id="legend" class="legend"></div><span class="chip">요구사항 <b>v0.8</b> · API <b>v0.1</b></span></div><div class="shell"><nav class="pane nav"><div class="search"><input type="text" id="search" placeholder="화면 / 요구사항 ID 검색…"/></div><div id="navlist"></div><div class="navfoot">총 <span id="cnt"></span>개 화면 · 클릭으로 화면 간 이동</div></nav><main class="pane canvas" id="ip2fr"><div id="crumb" class="crumb"></div><div class="frame"><div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span id="url" class="url"></span></div><div id="view" class="view"></div></div><div id="flowhint" class="flowhint"></div></main><aside id="spec" class="pane spec"></aside></div><script>
+/* ============================================================
+   저작권침해 국제공조수사 플랫폼 — 화면설계서 데이터 모델
+   요구사항 분석서(v0.8) + API 명세서(v0.1) 기반
+   ============================================================ */
+
+const ROLES = {
+  COM: { ko: '공통', color: 'var(--c-com)' },
+  INV: { ko: '수사관', color: 'var(--c-inv)' },
+  MGR: { ko: '수사 관리자', color: 'var(--c-mgr)' },
+  ADM: { ko: '플랫폼 관리자', color: 'var(--c-adm)' },
+  RSC: { ko: '조사관', color: 'var(--c-rsc)' },
+  CPH: { ko: '저작권자', color: 'var(--c-cph)' },
+  SYS: { ko: '공통 컴포넌트', color: 'var(--c-sys)' },
+};
+
+/* mockup helpers — produce wireframe HTML strings */
+const appShell = (active, body, opts = {}) => {
+  const navItems = [
+    ['main', '대시보드'],
+    ['board', '게시판'],
+    ['messenger', '메시지'],
+    ['statusBoard', '현황판'],
+  ];
+  const nav = navItems.map(([id, label]) =>
+    `<button class="wf-navlink ${active === id ? 'on' : ''}" data-goto="${id}">${label}</button>`
+  ).join('');
+  return `
+  <div class="wf-app">
+    <div class="wf-appbar">
+      <div class="wf-brand" data-goto="main">⬡ 국제공조수사 플랫폼</div>
+      <div class="wf-appnav">${nav}</div>
+      <div class="wf-appright">
+        <button class="wf-iconbtn" data-goto="notifDropdown" title="알림">🔔<span class="wf-dot">3</span></button>
+        <button class="wf-iconbtn" data-goto="messenger" title="메시지">✉<span class="wf-dot">2</span></button>
+        <button class="wf-avatar" data-goto="profileMenu">${opts.role || 'INV'}</button>
+      </div>
+    </div>
+    <div class="wf-appbody">${body}</div>
+  </div>`;
+};
+
+const SCREENS = [
+  /* ============ 공통 ============ */
+  {
+    id: 'login', group: 'COM', title: '로그인', reqId: 'COM-RQ-002', apiId: 'AUTH-002',
+    method: 'POST', url: '/api/auth/login',
+    desc: '모든 사용자의 플랫폼 진입점. ID/PW 검증 후 JWT(accessToken·refreshToken)를 발급하고 역할에 따라 메인 화면으로 진입한다.',
+    entries: [],
+    mock: `
+    <div class="wf-center">
+      <div class="wf-authcard">
+        <div class="wf-logo">⬡</div>
+        <div class="wf-h1">국제공조수사 플랫폼</div>
+        <div class="wf-sub">저작권침해 국제공조수사 WebConsole</div>
+        <div class="wf-field"><label>사용자 ID</label><div class="wf-input" data-goto="main">investigator01</div></div>
+        <div class="wf-field"><label>비밀번호</label><div class="wf-input">••••••••••</div></div>
+        <button class="wf-btn primary" data-goto="main">로그인</button>
+        <div class="wf-authlinks">
+          <span>아이디/비밀번호 찾기</span>
+          <span data-goto="signup" class="lk">회원가입</span>
+        </div>
+      </div>
+    </div>`,
+    interactions: [
+      { t: '[로그인] 버튼 클릭', a: 'ID/PW를 서버로 전송, JWT 토큰 발급', c: '입력값 정상', api: 'AUTH-002', go: 'main' },
+      { t: 'ID 미존재 / PW 불일치', a: '"아이디 또는 비밀번호가 일치하지 않습니다" 팝업', c: '401 Unauthorized', api: 'AUTH-002' },
+      { t: '관리자 미승인 계정', a: '"관리자의 승인 후 로그인할 수 있습니다" 팝업', c: '403 Forbidden', api: 'AUTH-002' },
+      { t: '[회원가입] 링크 클릭', a: '회원가입 화면으로 이동', c: '-', go: 'signup' },
+    ],
+    rules: ['비밀번호 입력은 "*" 마스킹 처리', 'Backend: 웹 DB 회원정보 + 블록체인 X.509 정보 조회', '로그인 성공 시 역할(INVESTIGATOR/MANAGER/ADMIN 등) 기반으로 진입 화면 분기'],
+    exceptions: ['관리자 승인 이전 계정 로그인 차단', 'X.509 인증서 미발급 계정 차단'],
+  },
+  {
+    id: 'signup', group: 'COM', title: '회원가입', reqId: 'COM-RQ-001', apiId: 'AUTH-001',
+    method: 'POST', url: '/api/auth/signup',
+    desc: '신규 사용자가 9개 항목을 입력해 가입을 신청한다. 가입 후에는 플랫폼 관리자의 승인 + X.509 인증서 발급 전까지 로그인이 불가하다.',
+    entries: ['login'],
+    mock: `
+    <div class="wf-center">
+      <div class="wf-authcard wide">
+        <div class="wf-h1">회원가입</div>
+        <div class="wf-grid2">
+          <div class="wf-field"><label>사용자 ID *</label><div class="wf-input">사용자 ID 입력</div></div>
+          <div class="wf-field"><label>비밀번호 *</label><div class="wf-input">••••••</div></div>
+          <div class="wf-field"><label>성명(국문) *</label><div class="wf-input"></div></div>
+          <div class="wf-field"><label>성명(영문) *</label><div class="wf-input"></div></div>
+          <div class="wf-field"><label>국가 *</label><div class="wf-select">대한민국 ▾</div></div>
+          <div class="wf-field"><label>연락처 *</label><div class="wf-input"></div></div>
+          <div class="wf-field"><label>소속 본부/부서 *</label><div class="wf-input"></div></div>
+          <div class="wf-field"><label>이메일 *</label><div class="wf-input"></div></div>
+        </div>
+        <button class="wf-btn primary" data-goto="login">회원가입 신청</button>
+        <div class="wf-authlinks"><span data-goto="login" class="lk">로그인으로 돌아가기</span></div>
+      </div>
+    </div>`,
+    interactions: [
+      { t: '[회원가입 신청] 클릭', a: '입력값 검증 후 가입 신청 전송', c: '필수값 전체 입력', api: 'AUTH-001', go: 'login' },
+      { t: '필수 정보 미입력', a: '미입력 항목 알림 팝업', c: '누락 존재', api: '-' },
+      { t: 'ID/이메일 중복', a: '"이미 가입된 ID/이메일" 팝업', c: 'Backend 중복 검사', api: 'AUTH-001' },
+      { t: '신청 완료', a: '"관리자 승인 후 로그인 가능" 팝업 → 메인 이동 버튼', c: '200 OK', go: 'login' },
+    ],
+    rules: ['비밀번호 "*" 마스킹', 'Backend: ID·이메일 중복 검사', '가입 정보는 웹 DB + 블록체인 원장에 기록', '관리자 승인 완료 시 X.509 인증서 발급'],
+    exceptions: ['승인 전 로그인 불가', '아이디/비밀번호 찾기 기능 제공'],
+  },
+  {
+    id: 'main', group: 'COM', title: '메인 / 할당 사건 목록', reqId: 'INV-RQ-001', apiId: 'CASE-001',
+    method: 'GET', url: '/api/cases/assigned',
+    desc: '로그인 직후 진입하는 메인. 본인에게 배정된 사건만 조회된다. 최근 수사한 3개 사건은 상단 카드로, 전체는 하단 테이블로 표시된다.',
+    entries: ['login', 'caseDetail', 'recordCreate'],
+    mock: appShell('main', `
+      <div class="wf-page">
+        <div class="wf-pagehead"><div class="wf-h2">내 할당 사건</div>
+          <div class="wf-rolebtns"><span class="wf-pill">최근 3건 카드</span></div></div>
+        <div class="wf-cards3">
+          <div class="wf-minicard" data-goto="caseDetail"><div class="wf-tag inv">진행중</div><b>#223 해외 공유 플랫폼 업로드</b><span>필리핀 · 모방 · 사전조사</span></div>
+          <div class="wf-minicard" data-goto="caseDetail"><div class="wf-tag inv">진행중</div><b>#218 웹툰 불법 스캔</b><span>태국 · 불법유통 · 증거수집</span></div>
+          <div class="wf-minicard" data-goto="caseDetail"><div class="wf-tag mgr">검토중</div><b>#205 영화 스트리밍</b><span>베트남 · 불법유통 · 검토</span></div>
+        </div>
+        <div class="wf-h3">전체 할당 사건</div>
+        <div class="wf-toolbar">
+          <div class="wf-searchbox">🔍 사건명 / 사건번호 검색</div>
+          <div class="wf-select sm">국가 ▾</div>
+          <div class="wf-select sm">침해유형 ▾</div>
+          <div class="wf-select sm">상태 ▾</div>
+          <div class="wf-select sm">최신순 ▾</div>
+        </div>
+        <table class="wf-table">
+          <tr><th>사건번호</th><th>사건명</th><th>관련국가</th><th>침해유형</th><th>수사시작일</th><th>상태</th><th>진행현황</th></tr>
+          <tr data-goto="caseDetail"><td>#223</td><td>해외 공유 플랫폼 업로드 사건</td><td>필리핀</td><td>모방</td><td>2023-09-05</td><td><span class="wf-tag inv">진행중</span></td><td>사전조사</td></tr>
+          <tr data-goto="caseDetail"><td>#218</td><td>웹툰 불법 스캔 유통</td><td>태국</td><td>불법유통</td><td>2024-01-12</td><td><span class="wf-tag inv">진행중</span></td><td>증거수집</td></tr>
+          <tr data-goto="caseDetail"><td>#205</td><td>영화 불법 스트리밍</td><td>베트남</td><td>불법유통</td><td>2024-03-02</td><td><span class="wf-tag mgr">검토중</span></td><td>검토</td></tr>
+        </table>
+        <div class="wf-pager"><span class="wf-pg">‹</span><span class="wf-pg on">1</span><span class="wf-pg">2</span><span class="wf-pg">3</span><span class="wf-pg">›</span></div>
+      </div>`),
+    interactions: [
+      { t: '사건 카드/행 클릭', a: '사건 상세 정보 화면 이동(RBAC 검증)', c: '배정된 사건', api: 'CASE-006', go: 'caseDetail' },
+      { t: '초기 진입', a: '회원정보 기반 본인 배정 사건만 목록 출력', c: '로그인 상태', api: 'CASE-001' },
+      { t: '검색 / 필터 / 정렬', a: '사건명·번호 검색, 국가·유형·상태 필터, 정렬 적용', c: '-', api: 'CASE-001' },
+      { t: '페이지 이동', a: 'page·size 파라미터로 목록 페이지네이션', c: '-', api: 'CASE-001' },
+      { t: '배정 사건 없음', a: '빈 상태(Empty) 화면 노출', c: '결과 0건', api: '-', go: 'emptyState' },
+      { t: '상단 알림 클릭', a: '알림 드롭다운 열기', c: '-', go: 'notifDropdown' },
+      { t: '현황판 메뉴', a: '역할별 현황판 이동', c: '-', go: 'statusBoard' },
+    ],
+    rules: ['블록체인에서 상세정보 제외한 기본 정보만 호출', '상세 정보는 카드/리스트에 노출하지 않음', '최근 수사 3건 상단 카드 고정', '목록 기본 정렬: 최신순(검색·필터·페이지네이션 지원)'],
+    exceptions: ['수사 관리자 진입 시 "생성한 사건" 목록(CASE-002) 동시 노출'],
+  },
+  {
+    id: 'notifications', group: 'COM', title: '알림 전체보기', reqId: 'COM-RQ-004', apiId: 'AUTH-005 / AUTH-006',
+    method: 'GET / PATCH', url: '/api/notifications',
+    desc: '사건 배정·기록 추가·진행현황 변경·종료 등 이벤트 알림을 목록으로 제공한다. 읽은 알림과 안 읽은 알림은 색상으로 구분한다.',
+    entries: ['main'],
+    mock: appShell('', `
+      <div class="wf-page narrow">
+        <div class="wf-pagehead"><div class="wf-h2">알림</div>
+          <div class="wf-rolebtns"><button class="wf-btn ghost sm">모두 읽음</button><button class="wf-btn ghost sm">일괄 삭제</button></div></div>
+        <div class="wf-notif unread" data-goto="caseDetail"><b>신규 사건 배정</b> #223 해외 공유 플랫폼 업로드 사건<span class="wf-time">10분 전</span></div>
+        <div class="wf-notif unread" data-goto="recordDetail"><b>신규 수사 기록 추가</b> #218 웹툰 불법 스캔<span class="wf-time">1시간 전</span></div>
+        <div class="wf-notif unread" data-goto="caseDetail"><b>상세 진행현황 변경</b> #205 → 증거수집<span class="wf-time">3시간 전</span></div>
+        <div class="wf-notif" data-goto="recordDetail"><b>수사 보고서 업로드</b> #218<span class="wf-time">어제</span></div>
+        <div class="wf-notif"><b>사건 종료</b> #190 음원 불법유통<span class="wf-time">2일 전</span></div>
+      </div>`),
+    interactions: [
+      { t: '알림 클릭', a: '해당 사건/기록 상세 화면으로 이동 + 읽음 처리', c: '연결 사건 존재', api: 'AUTH-006', go: 'caseDetail' },
+      { t: '[모두 읽음] 클릭', a: '빈 배열 전송 → 전체 읽음 처리', c: '-', api: 'AUTH-006' },
+      { t: '목록 조회', a: '페이지네이션 + is_read 필터', c: '-', api: 'AUTH-005' },
+    ],
+    rules: ['읽은 알림 / 안 읽은 알림 색상 구분', '안 읽은 개수는 상단 배지(Badge)로 표시', '알림 유형별 사건번호·사건명·시간 표기'],
+    exceptions: ['연결 사건 권한 없을 시 상세 진입 거절 팝업'],
+  },
+  {
+    id: 'messenger', group: 'COM', title: '메시지', reqId: 'COM-RQ-005', apiId: 'INFO-001 / INFO-002',
+    method: 'POST / GET', url: '/api/messages',
+    desc: '사용자 간 1:1 실시간 메시지. 좌측 대화 상대 리스트, 우측 대화창. 미확인 메시지 수는 배지로 표시하고 오프라인 사용자는 온라인 전환 시 자동 전달된다.',
+    entries: ['main'],
+    mock: appShell('messenger', `
+      <div class="wf-msg">
+        <div class="wf-msglist">
+          <div class="wf-msgitem on"><b>김철수</b><span class="wf-badge2">2</span><br><small>보고서 검토 부탁드립니다.</small></div>
+          <div class="wf-msgitem"><b>고광천</b><br><small>증거물 업로드 완료했습니다</small></div>
+          <div class="wf-msgitem"><b>P. Somchai (TH)</b><br><small>Case #218 update?</small></div>
+        </div>
+        <div class="wf-msgchat">
+          <div class="wf-msgchead">김철수 · 수사 관리자</div>
+          <div class="wf-bubbles">
+            <div class="wf-bub in">#218 보고서 검토 부탁드립니다.</div>
+            <div class="wf-bub out">확인했습니다. 오늘 중 검토하겠습니다.</div>
+            <div class="wf-bub in">감사합니다 👍</div>
+          </div>
+          <div class="wf-msginput"><div class="wf-input flex">메시지 입력…</div><button class="wf-btn primary sm">전송</button></div>
+        </div>
+      </div>`),
+    interactions: [
+      { t: '[전송] 클릭', a: '메시지 DB 저장 + 수신자 실시간 전달', c: '내용 입력됨', api: 'INFO-001' },
+      { t: '대화 상대 클릭', a: '해당 상대와의 대화 기록 페이지네이션 조회', c: '-', api: 'INFO-002' },
+      { t: '입력값 없음', a: '[전송] 버튼 비활성화', c: '내용 공란', api: '-' },
+    ],
+    rules: ['미확인 메시지 수 Badge 표시', '읽음 상태 추적·관리', '오프라인 수신자 온라인 전환 시 미전달 메시지 자동 전송'],
+    exceptions: ['미승인 계정 송수신 불가'],
+  },
+  {
+    id: 'board', group: 'COM', title: '공지/조사정보 게시판', reqId: 'COM-RQ-006', apiId: 'INFO-003',
+    method: 'GET', url: '/api/posts',
+    desc: '공지사항 / 조사정보 게시판. 탭으로 board_type을 전환한다. 사용자 역할에 따라 접근 가능한 게시물이 통제된다(저작권자 접근 불가).',
+    entries: ['main'],
+    mock: appShell('board', `
+      <div class="wf-page">
+        <div class="wf-tabs"><span class="wf-tab on">공지사항</span><span class="wf-tab">조사정보</span><span class="wf-flexsp"></span><button class="wf-btn primary sm" data-goto="postCreate">＋ 조사정보 작성</button></div>
+        <table class="wf-table">
+          <tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회</th></tr>
+          <tr data-goto="boardDetail"><td>35</td><td>인터폴 협력 사례 공유 세미나 참가 신청 안내</td><td>관리자</td><td>2025-05-19</td><td>65</td></tr>
+          <tr data-goto="boardDetail"><td>34</td><td>2025 하반기 공조수사 운영 가이드</td><td>관리자</td><td>2025-05-02</td><td>120</td></tr>
+          <tr data-goto="boardDetail"><td>33</td><td>[조사정보] 태국 발 웹툰 미러사이트 패턴</td><td>고광천</td><td>2025-04-28</td><td>88</td></tr>
+        </table>
+        <div class="wf-pager"><span class="wf-pg">‹</span><span class="wf-pg on">1</span><span class="wf-pg">2</span><span class="wf-pg">3</span><span class="wf-pg">›</span></div>
+      </div>`),
+    interactions: [
+      { t: '게시물 행 클릭', a: '게시물 상세 조회 이동', c: '접근 권한 충족', api: 'INFO-004', go: 'boardDetail' },
+      { t: '탭 전환', a: 'board_type(NOTICE / INVESTIGATION_INFO) 필터 재조회', c: '-', api: 'INFO-003' },
+      { t: '[조사정보 작성]', a: '조사정보 작성 화면 이동', c: '수사관/관리자/조사관', go: 'postCreate' },
+    ],
+    rules: ['Backend: 역할 확인 후 게시물 접근 통제', '페이지네이션 지원'],
+    exceptions: ['저작권자는 공지/조사정보 게시판 접근 불가', '권한 부족/미공개 게시물 접근 실패 사유 출력'],
+  },
+  {
+    id: 'boardDetail', group: 'COM', title: '게시물 상세', reqId: 'COM-RQ-006', apiId: 'INFO-004',
+    method: 'GET', url: '/api/posts/{postId}',
+    desc: '게시물 본문, 작성자, 작성일, 조회수, 첨부파일을 표시한다.',
+    entries: ['board'],
+    mock: appShell('board', `
+      <div class="wf-page narrow">
+        <button class="wf-btn ghost sm" data-goto="board">← 목록</button>
+        <div class="wf-h2">인터폴 협력 사례 공유 세미나 참가 신청 안내</div>
+        <div class="wf-meta">관리자 · 2025-05-19 · 조회 65</div>
+        <div class="wf-ph tall">게시물 본문 영역 — 자세한 내용은 첨부파일을 확인하시기 바랍니다.</div>
+        <div class="wf-h3">첨부파일</div>
+        <div class="wf-fileitem">📎 세미나_계획안.docx</div>
+      </div>`),
+    interactions: [
+      { t: '진입', a: '게시물 상세 내용·첨부 조회', c: '권한 충족', api: 'INFO-004' },
+      { t: '첨부파일 클릭', a: '첨부파일 다운로드', c: '-', api: '-' },
+      { t: '[목록] 클릭', a: '게시판으로 복귀', c: '-', go: 'board' },
+    ],
+    rules: ['조회 시 view_count 증가'],
+    exceptions: ['접근 권한 없을 시 본문 비노출'],
+  },
+  {
+    id: 'postCreate', group: 'COM', title: '조사정보 작성', reqId: 'COM-RQ-007', apiId: 'INFO-005',
+    method: 'POST', url: '/api/posts',
+    desc: '수사관·관리자·조사관이 조사정보 게시판에 게시물을 등록한다(board_type=INVESTIGATION_INFO 고정). 저작권자는 별도 페이지로 신고한다.',
+    entries: ['board'],
+    mock: appShell('board', `
+      <div class="wf-page narrow">
+        <div class="wf-h2">조사정보 작성</div>
+        <div class="wf-field"><label>제목 *</label><div class="wf-input">조사정보 제목</div></div>
+        <div class="wf-field"><label>내용 *</label><div class="wf-ph tall">조사 상세 내용 입력</div></div>
+        <div class="wf-field"><label>첨부파일</label><div class="wf-upload">파일을 끌어다 놓거나 선택</div></div>
+        <div class="wf-rowend"><button class="wf-btn ghost" data-goto="board">취소</button><button class="wf-btn primary" data-goto="board">등록</button></div>
+      </div>`),
+    interactions: [
+      { t: '[등록] 클릭', a: '조사정보 게시물 생성 → 게시판 복귀', c: '제목·내용 입력', api: 'INFO-005', go: 'board' },
+      { t: '제목/내용 미입력', a: '작성 실패 사유 팝업', c: '누락', api: '-' },
+    ],
+    rules: ['board_type은 INVESTIGATION_INFO 고정', '첨부 ID 배열(attachment_ids) 전송'],
+    exceptions: ['저작권자는 이 화면 대신 별도 신고 페이지(CPH) 사용'],
+  },
+  {
+    id: 'profileEdit', group: 'COM', title: '회원정보 수정', reqId: 'COM-RQ-003', apiId: 'AUTH-004',
+    method: 'PUT', url: '/api/users/me',
+    desc: '연락처·부서·이메일·프로필 등을 수정한다. 단순 프로필 사진 외 변경은 관리자 승인 후 적용되며, 승인 시 기존 X.509가 폐기되고 새 인증서가 재발급된다.',
+    entries: ['main'],
+    mock: appShell('', `
+      <div class="wf-page narrow">
+        <div class="wf-h2">회원정보 수정</div>
+        <div class="wf-profrow"><div class="wf-circle">📷</div><button class="wf-btn ghost sm">사진 변경</button></div>
+        <div class="wf-field"><label>현재 비밀번호</label><div class="wf-input">••••</div></div>
+        <div class="wf-field"><label>새 비밀번호</label><div class="wf-input">••••</div></div>
+        <div class="wf-field"><label>연락처</label><div class="wf-input">+82 10-8765-4321</div></div>
+        <div class="wf-field"><label>소속 부서</label><div class="wf-input">침해대응본부 국제공조팀</div></div>
+        <div class="wf-field"><label>이메일</label><div class="wf-input">crazy1000@example.com</div></div>
+        <div class="wf-rowend"><button class="wf-btn ghost" data-goto="main">취소</button><button class="wf-btn primary" data-goto="main">수정 요청</button></div>
+      </div>`),
+    interactions: [
+      { t: '[수정 요청] 클릭', a: '관리자 승인 요청 전송(202 Accepted)', c: '형식 정상', api: 'AUTH-004', go: 'main' },
+      { t: '프로필 사진만 변경', a: '관리자 승인 없이 즉시 반영', c: '사진 단독 변경', api: 'AUTH-004' },
+      { t: '비밀번호 변경', a: '기존 비밀번호와 동일 여부 검증', c: 'new ≠ current', api: '-' },
+    ],
+    rules: ['비밀번호 "*" 마스킹', '승인 완료 시 웹 DB 업데이트 + X.509 폐기·재발급'],
+    exceptions: ['형식 불일치 시 실패 사유 출력'],
+  },
+
+  /* ============ 수사관 ============ */
+  {
+    id: 'caseDetail', group: 'INV', title: '사건 상세 정보', reqId: 'INV-RQ-002 / MGR-RQ-003', apiId: 'CASE-006',
+    method: 'POST', url: '/api/case_read',
+    desc: '사건 기본정보 + 수사기록 목록을 표시한다. 진입 시 회원정보/X.509로 역할을 확인하고 RBAC 검증을 통과해야 조회되며, 열람 이력은 블록체인에 기록된다.',
+    entries: ['main', 'notifications', 'assignInvestigator'],
+    mock: appShell('main', `
+      <div class="wf-page">
+        <button class="wf-btn ghost sm" data-goto="main">← 사건 목록</button>
+        <div class="wf-pagehead"><div class="wf-h2">#223 해외 공유 플랫폼 업로드 사건</div>
+          <div class="wf-rolebtns"><span class="wf-tag inv">진행중 · 사전조사</span><button class="wf-btn primary sm" data-goto="recordCreate">＋ 신규 수사기록</button></div></div>
+        <div class="wf-infogrid">
+          <div><span>콘텐츠 유형</span><b>웹툰</b></div><div><span>침해 유형</span><b>모방</b></div>
+          <div><span>관련 국가</span><b>필리핀</b></div><div><span>대응 순위</span><b>1순위</b></div>
+          <div><span>수사 개시일</span><b>2023-09-05</b></div><div><span>담당</span><b>고광천 외 1</b></div>
+        </div>
+        <div class="wf-ph">사건 개요: 성명불상자가 저작권자 허락 없이 해외 공유 플랫폼에 업로드…</div>
+        <div class="wf-h3">수사 기록 <span class="wf-lockhint">🔒 보안등급·검토상태에 따라 노출</span></div>
+        <table class="wf-table">
+          <tr><th>기록명</th><th>작성자</th><th>작성일</th><th>분류</th><th>상태</th></tr>
+          <tr data-goto="recordDetail"><td>목격자 관련 제보</td><td>고광천</td><td>2024-02-28</td><td>수사보고서</td><td><span class="wf-tag mgr">승인</span></td></tr>
+          <tr data-goto="recordDetail"><td>업로더 IP 추적</td><td>고광천</td><td>2024-03-04</td><td>디지털증거물</td><td><span class="wf-tag inv">검토대기</span></td></tr>
+        </table>
+      </div>`),
+    interactions: [
+      { t: '진입 시', a: '회원정보/X.509 역할 확인 → RBAC 검증 → 상세 출력', c: 'rbac_result=true', api: 'CASE-006', go: '' },
+      { t: 'RBAC 검증 실패', a: '"조회 불가능" 팝업 후 목록 복귀', c: 'rbac_result=false', api: 'ACCS-002' },
+      { t: '[신규 수사기록]', a: '수사기록 작성 화면 이동', c: '담당 수사관', go: 'recordCreate' },
+      { t: '수사기록 행 클릭', a: '수사기록 상세 조회(LBAC 검증)', c: '-', api: 'CASE-009', go: 'recordDetail' },
+    ],
+    rules: ['열람 이력은 시스템 로그로 블록체인 기록', '타 화면 이동 시 Lattice(LBAC) 접근제어 수행', '미배정 수사관에게는 작성/업로드 버튼 비활성화'],
+    exceptions: ['수사 관리자는 작성 버튼 대신 [검토] 진입', '저작권자 접근 불가'],
+  },
+  {
+    id: 'recordCreate', group: 'INV', title: '신규 수사기록 작성', reqId: 'INV-RQ-003 / INV-RQ-005', apiId: 'CASE-007 / CASE-008',
+    method: 'POST', url: '/api/cases/{caseId}/records',
+    desc: '담당 수사관이 수사기록을 작성한다. 보안등급(1~6)·상세 진행현황·수사내용을 입력하고, PC Agent로 보고서·증거물을 첨부한다. 작성 시 사건 생성 관리자가 검토자로 등록된다.',
+    entries: ['caseDetail'],
+    mock: appShell('main', `
+      <div class="wf-page narrow">
+        <button class="wf-btn ghost sm" data-goto="caseDetail">← 사건 상세</button>
+        <div class="wf-h2">신규 수사기록 작성 <small class="wf-muted">#223</small></div>
+        <div class="wf-field"><label>수사기록 명 *</label><div class="wf-input">사건 B 목격자 관련 제보</div></div>
+        <div class="wf-field"><label>보안 등급 (1~6) *</label>
+          <div class="wf-radios"><span class="wf-radio">1</span><span class="wf-radio on">2</span><span class="wf-radio">3</span><span class="wf-radio">4</span><span class="wf-radio">5</span><span class="wf-radio">6</span></div></div>
+        <div class="wf-field"><label>상세 진행현황 *</label>
+          <div class="wf-radios"><span class="wf-radio on">사전조사</span><span class="wf-radio">증거수집</span><span class="wf-radio">분석</span><span class="wf-radio">종료</span></div></div>
+        <div class="wf-field"><label>수사 내용 *</label><div class="wf-ph tall">수사 내용 입력…</div></div>
+        <div class="wf-field"><label>첨부 (보고서/증거물)</label>
+          <button class="wf-btn agent" data-goto="agentUpload">⬇ PC Agent 실행하여 업로드</button></div>
+        <div class="wf-rowend"><button class="wf-btn ghost" data-goto="caseDetail">취소</button><button class="wf-btn primary" data-goto="caseDetail">저장</button></div>
+      </div>`),
+    interactions: [
+      { t: '[저장] 클릭', a: '수사기록 생성 → 사건 상세로 이동', c: '필수값 입력 + 담당 수사관', api: 'CASE-007', go: 'caseDetail' },
+      { t: '[PC Agent 실행]', a: 'PC Agent 업로드 화면 호출', c: '-', go: 'agentUpload' },
+      { t: '저장 시', a: '작성 이력 블록체인 원장 기록 + 사건 관리자를 검토자로 자동 등록', c: '-', api: 'CASE-014' },
+      { t: '필수값 미입력', a: '실패 사유 팝업', c: '누락', api: '-' },
+    ],
+    rules: ['보안등급·진행현황은 Radio Button', 'RBAC: 수사 관리자는 작성 불가', 'RBAC: 조사관은 "사전조사" 단계만 작성 가능', '검토 이전까지만 수정 가능(CASE-008 동일 폼 재사용)'],
+    exceptions: ['검토 완료 후 수정 버튼 비활성화', 'caseId·작성일·작성자·검토자는 자동 입력'],
+  },
+  {
+    id: 'recordDetail', group: 'INV', title: '수사기록 상세 조회', reqId: 'INV-RQ-004', apiId: 'CASE-009',
+    method: 'POST', url: '/api/records/{recordId}',
+    desc: 'LBAC(격자 기반) 접근권한 검증을 통과한 사용자만 수사기록 본문·첨부를 조회한다. 검증 중에는 팝업을 노출하고, 작성자가 아니면 수정 버튼이 비활성화된다.',
+    entries: ['caseDetail', 'notifications', 'recordReview'],
+    mock: appShell('main', `
+      <div class="wf-page narrow">
+        <button class="wf-btn ghost sm" data-goto="caseDetail">← 사건 상세</button>
+        <div class="wf-pagehead"><div class="wf-h2">목격자 관련 제보</div>
+          <div class="wf-rolebtns"><span class="wf-tag sec">보안등급 3</span><span class="wf-tag mgr">승인됨</span></div></div>
+        <div class="wf-infogrid">
+          <div><span>사건</span><b>#223</b></div><div><span>작성자</span><b>고광천</b></div>
+          <div><span>진행현황</span><b>증거수집</b></div><div><span>작성일</span><b>2024-02-28</b></div>
+        </div>
+        <div class="wf-ph tall">수사 내용: 성명불상자가 저작권자의 이용허락 없이 해외 동영상 공유 플랫폼에…</div>
+        <div class="wf-h3">첨부 자료</div>
+        <div class="wf-fileitem" data-goto="fileDownload">🔐 수사보고서.zip <span class="wf-muted">(클릭 시 다운로드)</span></div>
+        <div class="wf-fileitem" data-goto="fileDownload">🔐 증거.mp4 <span class="wf-muted">(클릭 시 다운로드)</span></div>
+        <div class="wf-rowend"><button class="wf-btn ghost dis">수정 (작성자 전용)</button></div>
+      </div>`),
+    interactions: [
+      { t: '진입 시', a: 'X.509 속성 추출 → LBAC 권한 판단(검증중 팝업)', c: '권한=True', api: 'CASE-016 / ACCS-001', go: '' },
+      { t: 'LBAC 거절', a: '"조회 불가능" 팝업', c: '권한=False', api: 'ACCS-001' },
+      { t: '첨부 파일 클릭', a: '자료 다운로드(PC Agent) 흐름 진입', c: '열람가능 수사관', api: 'AGNT-002', go: 'fileDownload' },
+      { t: '작성자 본인', a: '[수정] 버튼 활성화 → 작성 화면', c: '검토 이전 + 작성자', go: 'recordCreate' },
+    ],
+    rules: ['조회 이력 블록체인 기록', '작성자 아니면 [수정] 비활성화', '관리자 검토 이전 기록은 동료에게 비공개'],
+    exceptions: ['보안등급 미달 수사관 조회 불가', '검증 중 로딩 팝업 노출'],
+  },
+  {
+    id: 'agentUpload', group: 'INV', title: 'PC Agent 업로드', reqId: 'INV-RQ-006 / INV-RQ-007', apiId: 'AGNT-001 / ATTC-001',
+    method: 'POST', url: '/api/agent/files/upload',
+    desc: 'PC Agent 전용 화면. 보고서/증거물을 ZIP 암호화하고, 열람 가능 수사관을 선택하면 각 수신자 공개키 + 본인 개인키로 재암호화 키를 생성해 프록시 재암호화(Proxy Re-Encryption)를 수행한다.',
+    entries: ['recordCreate'],
+    mock: `
+    <div class="wf-agent">
+      <div class="wf-agenthead">⬢ PC Agent — 보안 업로드 <span class="wf-agentbadge">로컬 실행</span></div>
+      <div class="wf-agentbody">
+        <div class="wf-field"><label>대상 수사기록</label><div class="wf-input dis">#223 / 목격자 관련 제보 (자동)</div></div>
+        <div class="wf-field"><label>파일 선택</label>
+          <div class="wf-upload">📄 보고서.hwp, 🎞 증거.mp4 선택됨</div></div>
+        <div class="wf-field"><label>문서 열람 가능 수사관 선택 *</label>
+          <div class="wf-checks">
+            <span class="wf-check on">☑ 고광천 (작성자)</span>
+            <span class="wf-check on">☑ 김철수 (관리자)</span>
+            <span class="wf-check">☐ P. Somchai (TH)</span>
+            <span class="wf-check">☐ 조사관 이영희</span>
+          </div></div>
+        <div class="wf-agentsteps">
+          <span class="wf-step on">1 ZIP 압축·암호화</span>→
+          <span class="wf-step">2 재암호화 키 생성</span>→
+          <span class="wf-step">3 Proxy 전송</span>→
+          <span class="wf-step">4 MinIO 저장</span>
+        </div>
+        <div class="wf-rowend"><button class="wf-btn ghost" data-goto="recordCreate">취소</button><button class="wf-btn primary" data-goto="recordCreate">업로드</button></div>
+      </div>
+    </div>`,
+    interactions: [
+      { t: '[업로드] 클릭', a: 'ZIP 암호화 + 재암호화 데이터 동봉하여 전송', c: '열람 수사관 1명+', api: 'AGNT-001', go: 'recordCreate' },
+      { t: '서버 수신', a: '재암호화 키로 Proxy Re-Encryption 수행', c: '-', api: 'ATTC-001' },
+      { t: '추가 업로드', a: '기존 암호화 파일 유지, 신규 파일만 추가', c: '-', api: 'AGNT-001' },
+      { t: '완료', a: '메타데이터 DB + 블록체인 기록 → 사건 상세 이동', c: '200 OK', go: 'caseDetail' },
+    ],
+    rules: ['열람 가능 수사관은 체크박스(사건 담당자 리스트 기반)', '각 수신자 공개키 + 본인 개인키로 재암호화키 생성', '암호화 파일은 외부 스토리지(MinIO) 저장'],
+    exceptions: ['선택되지 않은 수사관은 다운로드 시 복호화 불가', '필수 정보 누락 시 업로드 실패'],
+  },
+  {
+    id: 'fileDownload', group: 'INV', title: '자료 다운로드', reqId: 'INV-RQ-008', apiId: 'AGNT-002 / ATTC-002',
+    method: 'GET', url: '/api/agent/files/{fileId}/download',
+    desc: '암호화 자료 다운로드. PC Agent 실행 의사 확인 → 요청자가 "열람 가능 수사관"인지 검증 → 재암호화본 스트리밍 → 사용자 개인키로 PC Agent 내 복호화·압축 해제.',
+    entries: ['recordDetail'],
+    mock: `
+    <div class="wf-center">
+      <div class="wf-modal">
+        <div class="wf-h2">자료 다운로드</div>
+        <div class="wf-modaltext">"자료를 다운로드하기 위해 PC Agent를 실행하시겠습니까?"</div>
+        <div class="wf-fileitem dis">🔐 수사보고서.zip · 보안등급 3</div>
+        <div class="wf-agentsteps sm">
+          <span class="wf-step on">열람권한 확인</span>→
+          <span class="wf-step">재암호화본 수신</span>→
+          <span class="wf-step">개인키 복호화</span>→
+          <span class="wf-step">압축 해제</span>
+        </div>
+        <div class="wf-rowend"><button class="wf-btn ghost" data-goto="recordDetail">취소</button><button class="wf-btn primary" data-goto="recordDetail">PC Agent 실행</button></div>
+      </div>
+    </div>`,
+    interactions: [
+      { t: '[PC Agent 실행]', a: '요청자 정보 Proxy 전달 → 열람권한 확인', c: '열람 가능 수사관', api: 'ATTC-002' },
+      { t: '권한 확인됨', a: '재암호화본 octet-stream 스트리밍', c: '200 OK', api: 'AGNT-002' },
+      { t: '복호화', a: 'PC Agent에서 개인키 복호화 + 압축 해제', c: '-', api: '-' },
+      { t: '권한 없음', a: '"다운로드 권한이 없습니다" (403)', c: '비열람자', api: 'AGNT-002' },
+    ],
+    rules: ['다운로드 의사 확인 팝업 선행', '모든 다운로드 로그는 웹 DB + 블록체인 기록'],
+    exceptions: ['403 Forbidden: 열람 권한 없음', '404 Not Found: 파일 없음'],
+  },
+  {
+    id: 'statusBoard', group: 'INV', title: '현황판 (대시보드)', reqId: 'INV-RQ-009 / MGR-RQ-006', apiId: 'INFO-006 / DIFF-001',
+    method: 'GET', url: '/api/dashboard',
+    desc: '역할별로 다른 통계 현황판을 제공한다. 통계 데이터는 차등정보보호(Differential Privacy)로 비식별화되어 저장되며, X.509 역할에 따라 서로 다른 URL로 리다이렉션된다.',
+    entries: ['main'],
+    mock: appShell('statusBoard', `
+      <div class="wf-page">
+        <div class="wf-pagehead"><div class="wf-h2">수사 현황판</div><span class="wf-pill">차등정보보호 적용</span></div>
+        <div class="wf-kpis">
+          <div class="wf-kpi"><b>42</b><span>전체 진행 사건</span></div>
+          <div class="wf-kpi"><b>7</b><span>내 담당 사건</span></div>
+          <div class="wf-kpi"><b>5</b><span>검토 대기</span></div>
+          <div class="wf-kpi"><b>3</b><span>공조 국가</span></div>
+        </div>
+        <div class="wf-charts">
+          <div class="wf-chart"><div class="wf-charttitle">침해유형별 분포</div><div class="wf-bars"><i style="height:60%"></i><i style="height:90%"></i><i style="height:45%"></i><i style="height:70%"></i></div></div>
+          <div class="wf-chart"><div class="wf-charttitle">국가별 공조 사건</div><div class="wf-bars"><i style="height:80%"></i><i style="height:55%"></i><i style="height:40%"></i></div></div>
+        </div>
+      </div>`),
+    interactions: [
+      { t: '진입 시', a: 'X.509 역할 확인 → 역할별 현황판 URL 리다이렉션', c: '인증서 유효', api: 'INFO-006' },
+      { t: '데이터 로드', a: '비식별화된 통계 데이터 조회', c: '-', api: 'DIFF-001' },
+    ],
+    rules: ['수사관용 / 수사 관리자용 현황판 분리', '통계는 사전 차등정보보호 처리 후 DB 저장'],
+    exceptions: ['저작권자·조사관 접근 제한'],
+  },
+
+  /* ============ 수사 관리자 ============ */
+  {
+    id: 'caseCreate', group: 'MGR', title: '저작권 침해 사건 생성', reqId: 'MGR-RQ-001 / MGR-RQ-004', apiId: 'CASE-004 / CASE-005',
+    method: 'POST', url: '/api/cases',
+    desc: '수사 관리자가 신규 사건을 생성한다. 사건명·개요·콘텐츠/침해 유형·관련국가·대응순위·개시일을 입력하고, 저장 후 담당 수사관 배정 화면으로 이동한다.',
+    entries: ['main'],
+    mock: appShell('main', `
+      <div class="wf-page narrow">
+        <div class="wf-h2">신규 사건 생성</div>
+        <div class="wf-grid2">
+          <div class="wf-field"><label>사건명 *</label><div class="wf-input">신규 웹툰 불법 유통 사건</div></div>
+          <div class="wf-field"><label>대응 순위 *</label><div class="wf-select">1순위 ▾</div></div>
+          <div class="wf-field"><label>콘텐츠 유형 *</label><div class="wf-select">웹툰 ▾</div></div>
+          <div class="wf-field"><label>침해 유형 *</label><div class="wf-select">불법 유통 ▾</div></div>
+          <div class="wf-field"><label>관련 국가 *</label><div class="wf-tags"><span class="wf-tag2">태국 ✕</span><span class="wf-tag2">베트남 ✕</span><span class="wf-tag2 add">＋</span></div></div>
+          <div class="wf-field"><label>수사 개시일 *</label><div class="wf-input">2025-08-20</div></div>
+        </div>
+        <div class="wf-field"><label>사건 개요 *</label><div class="wf-ph tall">성명불상자가 저작권자 허락 없이…</div></div>
+        <div class="wf-field"><label>기타 사항</label><div class="wf-input">본 사건은 아직 수사 계획 미결정</div></div>
+        <div class="wf-rowend"><button class="wf-btn ghost" data-goto="main">취소</button><button class="wf-btn primary" data-goto="assignInvestigator">생성 후 수사관 배정 →</button></div>
+      </div>`),
+    interactions: [
+      { t: '[생성] 클릭', a: '사건 생성(case_id 발급) → 담당 수사관 배정 이동', c: '필수값 입력', api: 'CASE-004', go: 'assignInvestigator' },
+      { t: '필수값 미입력', a: '생성 실패 사유 팝업', c: '누락', api: '-' },
+      { t: '기존 사건 수정', a: '동일 폼으로 정보 수정', c: '생성자 본인', api: 'CASE-005' },
+    ],
+    rules: ['생성 사건은 웹 DB + 블록체인 기록', '사건번호는 자동 입력', '수정 시 담당 수사관 수정 화면으로 이동'],
+    exceptions: ['수사 관리자 외 접근 불가(RBAC)'],
+  },
+  {
+    id: 'assignInvestigator', group: 'MGR', title: '담당 수사관 배정', reqId: 'MGR-RQ-002', apiId: 'CASE-004 (assignee_ids)',
+    method: 'POST', url: '/api/cases',
+    desc: '생성한 사건에 담당 수사관을 배정한다. 동일 국가 수사관 배정 + 타국 수사 관리자는 국가별 1인 배정 규칙을 적용한다.',
+    entries: ['caseCreate'],
+    mock: appShell('main', `
+      <div class="wf-page narrow">
+        <div class="wf-h2">담당 수사관 배정 <small class="wf-muted">#157</small></div>
+        <div class="wf-rulebox">배정 규칙 ① 동일 국가 수사관 배정 가능 · ② 타국 수사 관리자는 국가별 1인</div>
+        <table class="wf-table">
+          <tr><th></th><th>이름</th><th>국가</th><th>역할</th><th>부서</th></tr>
+          <tr><td><span class="wf-check on">☑</span></td><td>고광천</td><td>대한민국</td><td>수사관</td><td>온라인보호부</td></tr>
+          <tr><td><span class="wf-check on">☑</span></td><td>김철수</td><td>대한민국</td><td>수사관</td><td>국제공조팀</td></tr>
+          <tr><td><span class="wf-check">☐</span></td><td>P. Somchai</td><td>태국</td><td>수사 관리자</td><td>TH-IP Crime</td></tr>
+        </table>
+        <div class="wf-rowend"><button class="wf-btn ghost" data-goto="caseCreate">← 이전</button><button class="wf-btn primary" data-goto="caseDetail">배정 완료</button></div>
+      </div>`),
+    interactions: [
+      { t: '[배정 완료] 클릭', a: 'assignee_ids 전송 → 사건 상세 이동', c: '배정 규칙 충족', api: 'CASE-004', go: 'caseDetail' },
+      { t: '배정 규칙 위반', a: '"수사관 배정 규칙 위반" 실패 팝업', c: '규칙 불충족', api: '-' },
+      { t: '배정 완료', a: '배정 이력 웹 DB + 블록체인 기록 + 대상자 알림', c: '-', api: 'CASE-004' },
+    ],
+    rules: ['동일 국가 수사관 다수 배정 가능', '타국 수사 관리자는 국가별 1인 제한', '배정 변경 시 변경 이력 기록'],
+    exceptions: ['규칙 위반 시 배정 차단'],
+  },
+  {
+    id: 'recordReview', group: 'MGR', title: '수사기록 검토', reqId: 'MGR-RQ-005', apiId: 'CASE-010',
+    method: 'PATCH', url: '/api/records/{recordId}/review',
+    desc: '수사 관리자가 제출된 수사기록을 검토해 승인/반려한다. 내용·보안등급·첨부 보고서·증거물을 확인하고, 승인 시 확인 문구를 입력한다. 검토 행위는 블록체인에 기록된다.',
+    entries: ['main', 'recordDetail'],
+    mock: appShell('main', `
+      <div class="wf-page">
+        <div class="wf-h2">검토 대기 수사기록</div>
+        <table class="wf-table">
+          <tr><th>사건</th><th>기록명</th><th>작성자</th><th>보안</th><th>요청일</th><th></th></tr>
+          <tr><td>#223</td><td>업로더 IP 추적</td><td>고광천</td><td>3</td><td>2024-03-04</td><td><button class="wf-btn primary sm" data-goto="recordDetail">검토</button></td></tr>
+          <tr><td>#218</td><td>미러사이트 분석</td><td>김철수</td><td>4</td><td>2024-03-06</td><td><button class="wf-btn primary sm" data-goto="recordDetail">검토</button></td></tr>
+        </table>
+        <div class="wf-reviewbox">
+          <div class="wf-h3">검토 패널</div>
+          <div class="wf-modaltext">"위 수사 기록을 검토하였으며 최종 승인합니다."</div>
+          <div class="wf-field"><label>반려 사유 (반려 시)</label><div class="wf-input">사유 입력…</div></div>
+          <div class="wf-rowend"><button class="wf-btn warn" data-goto="main">반려</button><button class="wf-btn primary" data-goto="main">승인 서명</button></div>
+        </div>
+      </div>`),
+    interactions: [
+      { t: '[검토] 클릭', a: '수사기록 상세 + 첨부 확인 화면 진입', c: '적합한 검토자', api: 'CASE-009', go: 'recordDetail' },
+      { t: '[승인 서명]', a: '확인 문구 입력 후 승인 → 기록 공개', c: 'review_status=APPROVED', api: 'CASE-010', go: 'main' },
+      { t: '[반려]', a: '반려 사유 입력 후 반려 처리', c: 'review_status=REJECTED', api: 'CASE-010', go: 'main' },
+    ],
+    rules: ['검토자 적합성 DB/블록체인 검증', '승인 시 UI 확인 문구(signature) 입력', '검토 결과 블록체인 기록(투명성 보장)'],
+    exceptions: ['작성자의 검토 요청 선행 필요', '관리자 본인이 생성한 사건만 검토'],
+  },
+
+  /* ============ 플랫폼 관리자 ============ */
+  {
+    id: 'adminApproval', group: 'ADM', title: '회원가입 승인', reqId: 'ADM-RQ-001', apiId: 'MGMT-001 / MGMT-004',
+    method: 'GET / POST', url: '/api/admin/users/{userId}/approval',
+    desc: '관리자용 콘솔. 승인 대기 사용자를 조회하고 승인/거절한다. 승인 시 역할을 부여하고 X.509 인증서 발급이 트리거되며, 거절 시 사유를 입력해 이메일로 통보한다.',
+    entries: [],
+    mock: appShell('', `
+      <div class="wf-page">
+        <div class="wf-adminbar">⚙ 관리자 콘솔</div>
+        <div class="wf-h2">회원가입 승인 대기</div>
+        <table class="wf-table">
+          <tr><th>ID</th><th>성명</th><th>국가</th><th>소속</th><th>신청일</th><th>역할 부여</th><th></th></tr>
+          <tr><td>invest02</td><td>박민수 / Park M.</td><td>대한민국</td><td>온라인보호부</td><td>2025-08-05</td><td><span class="wf-select sm">수사관 ▾</span></td><td><button class="wf-btn primary sm" data-goto="adminApproval">승인</button> <button class="wf-btn warn sm">거절</button></td></tr>
+          <tr><td>th_anan</td><td>Anan / 아난</td><td>태국</td><td>TH-IP</td><td>2025-08-06</td><td><span class="wf-select sm">수사 관리자 ▾</span></td><td><button class="wf-btn primary sm" data-goto="adminApproval">승인</button> <button class="wf-btn warn sm">거절</button></td></tr>
+        </table>
+      </div>`, { role: 'ADM' }),
+    interactions: [
+      { t: '[승인] 클릭', a: '상태=정상 변경 + 역할 부여 → X.509 인증서 발급 트리거', c: 'action=APPROVE', api: 'MGMT-004' },
+      { t: '[거절] 클릭', a: '거절 사유 입력 → 이메일 통보', c: 'action=REJECT', api: 'MGMT-004' },
+      { t: '목록 조회', a: 'status=PENDING_APPROVAL 사용자 조회', c: '-', api: 'MGMT-001' },
+    ],
+    rules: ['승인/거절 이력 웹 DB + 블록체인 기록', '승인 시 X.509 인증서 발행', '결과는 사용자 이메일로 통보'],
+    exceptions: ['플랫폼 관리자 전용 콘솔'],
+  },
+  {
+    id: 'adminRoles', group: 'ADM', title: '사용자 역할 관리', reqId: 'ADM-RQ-002 / ADM-RQ-003', apiId: 'MGMT-006 / MGMT-007',
+    method: 'PATCH', url: '/api/admin/users/{userId}/role',
+    desc: '전체 사용자 역할을 설정·변경하고, 회원정보 수정 요청을 승인/거절한다. 역할 변경 시 기존 X.509를 폐기하고 변경 속성을 포함한 새 인증서를 재발급한다(체인코드 호출).',
+    entries: ['adminApproval'],
+    mock: appShell('', `
+      <div class="wf-page">
+        <div class="wf-adminbar">⚙ 관리자 콘솔</div>
+        <div class="wf-tabs"><span class="wf-tab on">역할 관리</span><span class="wf-tab" data-goto="adminApproval">가입 승인</span><span class="wf-tab">정보수정 승인</span></div>
+        <table class="wf-table">
+          <tr><th>ID</th><th>성명</th><th>국가</th><th>현재 역할</th><th>변경</th><th></th></tr>
+          <tr><td>crazy1000</td><td>고광천</td><td>대한민국</td><td><span class="wf-tag inv">수사관</span></td><td><span class="wf-select sm">수사 관리자 ▾</span></td><td><button class="wf-btn primary sm" data-goto="adminRoles">변경</button></td></tr>
+          <tr><td>kim_cs</td><td>김철수</td><td>대한민국</td><td><span class="wf-tag mgr">수사 관리자</span></td><td><span class="wf-select sm">수사관 ▾</span></td><td><button class="wf-btn primary sm" data-goto="adminRoles">변경</button></td></tr>
+        </table>
+      </div>`, { role: 'ADM' }),
+    interactions: [
+      { t: '[변경] 클릭', a: 'DB role 수정 → 기존 X.509 폐기 → 신규 인증서 재발급', c: '관리자 권한', api: 'MGMT-006 / MGMT-007' },
+      { t: '정보수정 승인', a: '회원정보 수정 요청 승인/거절', c: 'ADM-RQ-002', api: 'MGMT-005' },
+    ],
+    rules: ['역할 변경은 중요 보안 작업', '변경 이력 웹 DB + 블록체인 기록', '인증서 폐기·재발급은 체인코드(MGMT-007) 호출'],
+    exceptions: ['플랫폼 관리자 전용'],
+  },
+  {
+    id: 'adminMonitor', group: 'ADM', title: '서버 상태 모니터링', reqId: 'ADM-RQ-004', apiId: '— (운영)',
+    method: 'GET', url: '/api/admin/monitor',
+    desc: '플랫폼 관리자가 서버/블록체인 상태를 실시간으로 확인한다. CPU·DB 접속·블록 수·노드 수·노드 활성상태·트래픽 현황을 그래프/표로 제공한다.',
+    entries: ['adminApproval'],
+    mock: appShell('', `
+      <div class="wf-page">
+        <div class="wf-adminbar">⚙ 관리자 콘솔</div>
+        <div class="wf-h2">서버 · 블록체인 상태</div>
+        <div class="wf-kpis">
+          <div class="wf-kpi"><b>37%</b><span>CPU 사용량</span></div>
+          <div class="wf-kpi"><b>정상</b><span>DB 접속</span></div>
+          <div class="wf-kpi"><b>1,284</b><span>블록 개수</span></div>
+          <div class="wf-kpi"><b>5/5</b><span>노드 활성</span></div>
+        </div>
+        <div class="wf-charts">
+          <div class="wf-chart"><div class="wf-charttitle">트래픽 현황</div><div class="wf-line"></div></div>
+          <div class="wf-chart"><div class="wf-charttitle">노드 상태</div><div class="wf-nodes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+        </div>
+      </div>`, { role: 'ADM' }),
+    interactions: [
+      { t: '진입 시', a: '실시간 리소스·블록체인 노드 상태 수집·출력', c: '관리자 권한', api: '-' },
+      { t: '이슈 발생', a: '수집·분석 로그를 웹 DB/블록체인 기록', c: '-', api: '-' },
+    ],
+    rules: ['CPU·메모리·네트워크·노드 상태 실시간 수집', 'Graph/Table/Text 포맷 제공'],
+    exceptions: ['플랫폼 관리자 전용'],
+  },
+
+  /* ============ 조사관 ============ */
+  {
+    id: 'rscRecord', group: 'RSC', title: '조사관 수사기록 (사전조사 한정)', reqId: 'RSC-RQ-001~003', apiId: 'CASE-013 / ACCS-001',
+    method: 'POST', url: '/api/case_read · /records',
+    desc: '조사관은 배정된 사건의 "사전조사" 단계 수사기록만 작성·조회할 수 있다. 이후 단계 기록은 LBAC에 의해 차단된다. (문서상 상세 미정 — 수사관 흐름 준용)',
+    entries: ['main'],
+    mock: appShell('main', `
+      <div class="wf-page narrow">
+        <div class="wf-h2">지원 사건 — 사전조사 기록 <small class="wf-muted">조사관</small></div>
+        <div class="wf-rulebox">조사관은 "사전조사" 단계 수사기록만 조회/작성 가능</div>
+        <table class="wf-table">
+          <tr><th>기록명</th><th>단계</th><th>작성자</th><th>접근</th></tr>
+          <tr data-goto="recordDetail"><td>초기 제보 정리</td><td>사전조사</td><td>이영희</td><td><span class="wf-tag rsc">열람가능</span></td></tr>
+          <tr><td>IP 추적 분석</td><td>증거수집</td><td>고광천</td><td><span class="wf-tag sec">🔒 차단</span></td></tr>
+        </table>
+        <div class="wf-rowend"><button class="wf-btn primary" data-goto="recordCreate">사전조사 기록 작성</button></div>
+      </div>`, { role: 'RSC' }),
+    interactions: [
+      { t: '사전조사 기록 클릭', a: '상세 조회(열람 가능 인원 한정)', c: '단계=사전조사', api: 'CASE-016', go: 'recordDetail' },
+      { t: '이후 단계 기록', a: 'LBAC 차단 — 조회 불가', c: '단계>사전조사', api: 'ACCS-001' },
+      { t: '[기록 작성]', a: '사전조사 단계 기록 작성', c: 'RBAC 허용', go: 'recordCreate' },
+    ],
+    rules: ['조사관은 사전조사 단계만 참여', '수신 가능 인원으로 선택된 경우만 사전조사 기록 조회'],
+    exceptions: ['요구사항 상세 "작성예정" — 수사관 흐름 준용'],
+  },
+
+  /* ============ 저작권자 ============ */
+  {
+    id: 'cphReport', group: 'CPH', title: '저작권 침해 정보 신고', reqId: 'CPH-RQ-001', apiId: 'INFO-005',
+    method: 'POST', url: '/api/posts (별도 신고 페이지)',
+    desc: '저작권자는 게시판에 접근할 수 없으므로 별도 신고 페이지로 침해 정보를 공유한다. 등록된 정보는 조사정보 게시판에 자동 공유된다.',
+    entries: ['login'],
+    mock: `
+    <div class="wf-center">
+      <div class="wf-authcard wide">
+        <div class="wf-logo">⬡</div>
+        <div class="wf-h1">저작권 침해 신고</div>
+        <div class="wf-sub">저작권자 전용 — 게시판 접근 없이 침해 정보를 공유합니다</div>
+        <div class="wf-field"><label>제목 *</label><div class="wf-input">침해 사례 제목</div></div>
+        <div class="wf-field"><label>침해 상세 내용 *</label><div class="wf-ph tall">침해 사이트 URL, 콘텐츠, 발견 경위…</div></div>
+        <div class="wf-field"><label>관련 파일</label><div class="wf-upload">증빙 파일 첨부</div></div>
+        <button class="wf-btn primary" data-goto="cphReport">신고 제출</button>
+      </div>
+    </div>`,
+    interactions: [
+      { t: '[신고 제출] 클릭', a: '침해 정보 등록 → 조사정보 게시판 자동 공유', c: '제목·내용 입력', api: 'INFO-005' },
+      { t: '제출 완료', a: '"신고 완료" 팝업', c: '201 Created', api: 'INFO-005' },
+    ],
+    rules: ['저작권자는 별도 페이지로만 정보 공유', '등록 정보는 조사정보 게시판에 노출'],
+    exceptions: ['저작권자는 공지/조사정보/수사정보 직접 접근 불가'],
+  },
+
+  /* ============ 공통 컴포넌트 (전역 UI 패턴) ============ */
+  {
+    id: 'toast', group: 'SYS', title: '토스트 / 스낵바', reqId: '공통 피드백', apiId: '— (UI)',
+    desc: '생성·수정·전송 등 액션 성공/실패를 화면 상단에 잠깐 띄우고 자동으로 사라지는 비차단(non-blocking) 피드백. 페이지 이동 없이 결과만 알린다.',
+    entries: ['caseCreate', 'recordCreate', 'postCreate', 'messenger'],
+    mock: `
+    <div class="wf-center">
+      <div class="wf-toaststack">
+        <div class="wf-toast ok"><span class="ic">✓</span><div><b>저장되었습니다</b> 신규 저작권 침해 사건이 생성되었습니다.</div><span class="x">✕</span></div>
+        <div class="wf-toast err"><span class="ic">✕</span><div><b>전송 실패</b> 네트워크 오류로 메시지를 보내지 못했습니다.</div><span class="x">✕</span></div>
+        <div class="wf-toast warn"><span class="ic">!</span><div><b>확인 필요</b> 필수 입력 항목을 확인해주세요.</div><span class="x">✕</span></div>
+      </div>
+    </div>`,
+    interactions: [
+      { t: '액션 성공', a: '성공 토스트(초록) 노출 후 3초 뒤 자동 소멸', c: '2xx 응답', api: '-' },
+      { t: '액션 실패', a: '실패 토스트(빨강) 노출 + [재시도] 옵션', c: '4xx/5xx', api: '-' },
+      { t: '경고/검증', a: '경고 토스트(노랑) 노출', c: '입력 경고', api: '-' },
+      { t: '[✕] 클릭', a: '토스트 즉시 닫기', c: '-', api: '-' },
+    ],
+    rules: ['화면 전환 없이 결과만 전달(비차단)', '자동 소멸(기본 3초) + 수동 닫기', '동시 다발 시 스택으로 누적'],
+    exceptions: ['중요/되돌릴 수 없는 작업은 토스트 대신 확인 다이얼로그 사용'],
+  },
+  {
+    id: 'alertPopup', group: 'SYS', title: '알림(Alert) 팝업', reqId: 'COM-RQ-001·002·006', apiId: '— (UI)',
+    desc: '요구사항 전반에서 "팝업으로 출력"을 명시한 차단형 알림. 단일 [확인] 버튼으로 닫는다. ID 중복, 미입력, 권한 부족, 조회 불가 등에 사용.',
+    entries: ['signup', 'login', 'caseDetail', 'recordDetail'],
+    mock: `
+    <div class="wf-center">
+      <div class="wf-modal">
+        <div class="wf-alerticon warn">!</div>
+        <div class="wf-h2" style="text-align:center">조회할 수 없습니다</div>
+        <div class="wf-modaltext" style="text-align:center;font-style:normal">접근 권한이 부족하여 사건 상세 정보를 열람할 수 없습니다. (RBAC 거절)</div>
+        <div class="wf-rowend" style="justify-content:center"><button class="wf-btn primary" data-goto="main">확인</button></div>
+        <div class="wf-variantnote">동일 패턴 재사용 · ID/이메일 중복 · 필수값 미입력 · 비밀번호 불일치 · 미공개 게시물 · 권한 없음</div>
+      </div>
+    </div>`,
+    interactions: [
+      { t: '검증 실패 발생', a: '사유 메시지를 차단형 팝업으로 출력', c: '입력/권한 오류', api: '-' },
+      { t: '[확인] 클릭', a: '팝업 닫고 이전 화면 유지/복귀', c: '-', go: 'main' },
+    ],
+    rules: ['단일 확인 버튼(차단형)', '메시지는 서버 message 필드 또는 UI 정의 문구', '입력 오류 시 해당 필드 포커스 이동'],
+    exceptions: ['양자택일이 필요하면 확인 다이얼로그 사용'],
+  },
+  {
+    id: 'confirmDialog', group: 'SYS', title: '확인(Confirm) 다이얼로그', reqId: 'COM-RQ-004 외', apiId: '— (UI)',
+    desc: '되돌릴 수 없거나 영향이 큰 작업 전 사용자 의사를 재확인하는 양자택일 모달. 알림 일괄 삭제, 사건/기록 삭제, 역할 변경, 반려 등에 사용.',
+    entries: ['notifications', 'adminRoles', 'recordReview'],
+    mock: `
+    <div class="wf-center">
+      <div class="wf-modal">
+        <div class="wf-alerticon danger">🗑</div>
+        <div class="wf-h2" style="text-align:center">알림을 모두 삭제할까요?</div>
+        <div class="wf-modaltext" style="text-align:center;font-style:normal">삭제된 알림은 복구할 수 없습니다.</div>
+        <div class="wf-rowend" style="justify-content:center"><button class="wf-btn ghost" data-goto="notifications">취소</button><button class="wf-btn warn" data-goto="notifications">삭제</button></div>
+        <div class="wf-variantnote">재사용 · 역할 변경(X.509 재발급) · 수사기록 반려 · 사건 종료 · 로그아웃</div>
+      </div>
+    </div>`,
+    interactions: [
+      { t: '위험 액션 트리거', a: '확인 다이얼로그 표시(작업 대기)', c: '되돌릴 수 없는 작업', api: '-' },
+      { t: '[삭제/확인] 클릭', a: '실제 작업 수행 → 토스트로 결과 통지', c: '사용자 확정', api: '연계 API', go: 'toast' },
+      { t: '[취소] 클릭', a: '작업 취소 후 다이얼로그 닫기', c: '-', go: 'notifications' },
+    ],
+    rules: ['주요 버튼 색상으로 위험도 구분(삭제=빨강)', '키보드 ESC/배경 클릭 시 취소 처리', '확정 후 결과는 토스트로 안내'],
+    exceptions: ['단순 안내는 Alert, 비차단 결과는 Toast 사용'],
+  },
+  {
+    id: 'loadingOverlay', group: 'SYS', title: '검증 / 로딩 오버레이', reqId: 'INV-RQ-004', apiId: 'ACCS-001 / ACCS-002',
+    desc: 'X.509 인증서 추출·분석, RBAC/LBAC 접근권한 판단 등 시간이 걸리는 검증 중 진행 상태를 알리는 차단형 로딩 팝업(요구사항 명시).',
+    entries: ['caseDetail', 'recordDetail', 'statusBoard'],
+    mock: `
+    <div class="wf-loadwrap">
+      <div class="wf-loadbox">
+        <div class="wf-spinner"></div>
+        <div class="wf-loadtxt">접근 권한을 검증하는 중입니다…</div>
+        <div class="wf-loadsub">X.509 속성 추출 → LBAC 격자 판단</div>
+      </div>
+    </div>`,
+    interactions: [
+      { t: '권한 검증 시작', a: '로딩 오버레이 노출(입력 차단)', c: '검증 소요', api: 'ACCS-001' },
+      { t: '검증 성공', a: '오버레이 해제 후 대상 화면 진입', c: 'True', api: '-', go: 'recordDetail' },
+      { t: '검증 실패', a: '오버레이 해제 후 "조회 불가" 알림 팝업', c: 'False', api: '-', go: 'alertPopup' },
+      { t: '시간 초과', a: '실패 토스트 + 재시도 안내', c: 'timeout', go: 'toast' },
+    ],
+    rules: ['파일 업로드/다운로드 시 진행률(%) 표시', '검증 결과(True/False)에 따라 분기'],
+    exceptions: ['장시간 작업은 백그라운드 처리 + 완료 알림 권장'],
+  },
+  {
+    id: 'notifDropdown', group: 'SYS', title: '알림 드롭다운', reqId: 'COM-RQ-004', apiId: 'AUTH-005 / AUTH-006',
+    desc: '상단 벨 아이콘 클릭 시 열리는 미니 알림 패널. 최근 알림 미리보기 + [전체보기]로 알림 페이지 진입. 안 읽은 개수는 벨 배지로 표시.',
+    entries: ['main', 'caseDetail'],
+    mock: appShell('main', `
+      <div class="wf-page"><div class="wf-h2" style="opacity:.35">대시보드</div><div class="wf-ph" style="opacity:.3">사건 목록 영역…</div></div>
+      <div class="wf-dropdown notif">
+        <div class="wf-ddhead">알림 <span class="all" data-goto="notifications">전체보기</span></div>
+        <div class="wf-dditem" data-goto="caseDetail"><b>신규 사건 배정</b><small>#223 · 10분 전</small></div>
+        <div class="wf-dditem" data-goto="recordDetail"><b>신규 수사 기록 추가</b><small>#218 · 1시간 전</small></div>
+        <div class="wf-dditem" data-goto="caseDetail"><b>상세 진행현황 변경</b><small>#205 · 3시간 전</small></div>
+      </div>`),
+    interactions: [
+      { t: '벨 아이콘 클릭', a: '최근 알림 미리보기 드롭다운 열기', c: '-', api: 'AUTH-005' },
+      { t: '알림 항목 클릭', a: '해당 사건/기록 이동 + 읽음 처리', c: '연결 사건 존재', api: 'AUTH-006', go: 'caseDetail' },
+      { t: '[전체보기] 클릭', a: '알림 전체보기 페이지 이동', c: '-', go: 'notifications' },
+      { t: '바깥 영역 클릭', a: '드롭다운 닫기', c: '-', api: '-' },
+    ],
+    rules: ['안 읽은 알림 개수 Badge 표시', '미리보기는 최근 N건만, 나머지는 전체보기'],
+    exceptions: ['실시간 수신 시 배지 카운트 즉시 갱신'],
+  },
+  {
+    id: 'profileMenu', group: 'SYS', title: '프로필 메뉴 / 로그아웃', reqId: 'COM-RQ-003 외', apiId: '— (UI)',
+    desc: '상단 아바타 클릭 시 열리는 사용자 메뉴. 내 정보·회원정보 수정·현황판 진입과 로그아웃(세션 종료)을 제공한다.',
+    entries: ['main'],
+    mock: appShell('main', `
+      <div class="wf-page"><div class="wf-h2" style="opacity:.35">대시보드</div></div>
+      <div class="wf-dropdown prof">
+        <div class="wf-profcard"><div class="wf-circle sm">👤</div><div><b>고광천</b><small>수사관 · 대한민국</small></div></div>
+        <div class="wf-menuitem" data-goto="profileEdit">⚙ 회원정보 수정</div>
+        <div class="wf-menuitem" data-goto="statusBoard">📊 내 현황판</div>
+        <div class="wf-menuitem danger" data-goto="login">⎋ 로그아웃</div>
+      </div>`),
+    interactions: [
+      { t: '아바타 클릭', a: '프로필 메뉴 드롭다운 열기', c: '-', api: '-' },
+      { t: '[회원정보 수정]', a: '회원정보 수정 화면 이동', c: '-', go: 'profileEdit' },
+      { t: '[로그아웃] 클릭', a: '토큰 폐기·세션 종료 → 로그인 화면', c: '확인 다이얼로그 후', api: '-', go: 'login' },
+    ],
+    rules: ['로그아웃 시 accessToken/refreshToken 폐기', '로그아웃은 확인 다이얼로그 권장'],
+    exceptions: ['역할에 따라 메뉴 항목 가변(관리자=콘솔 진입)'],
+  },
+  {
+    id: 'findAccount', group: 'SYS', title: '아이디 / 비밀번호 찾기', reqId: 'COM-RQ-001(사후조건)', apiId: '— (보조)',
+    desc: '로그인 화면에서 진입. 가입 시 등록한 이메일로 본인확인 후 아이디 안내 또는 비밀번호 재설정 링크를 발송한다.',
+    entries: ['login'],
+    mock: `
+    <div class="wf-center">
+      <div class="wf-authcard">
+        <div class="wf-logo">⬡</div>
+        <div class="wf-h1">계정 찾기</div>
+        <div class="wf-segtabs"><span class="wf-segtab on">아이디 찾기</span><span class="wf-segtab">비밀번호 재설정</span></div>
+        <div class="wf-field"><label>가입 이메일</label><div class="wf-input">name@example.com</div></div>
+        <button class="wf-btn primary" data-goto="login">인증 메일 발송</button>
+        <div class="wf-authlinks"><span data-goto="login" class="lk">← 로그인으로 돌아가기</span></div>
+      </div>
+    </div>`,
+    interactions: [
+      { t: '[인증 메일 발송]', a: '이메일 본인확인 → 아이디 안내 / 재설정 링크 전송', c: '가입 이메일 존재', api: '-', go: 'login' },
+      { t: '미가입 이메일', a: '"등록되지 않은 이메일" 알림 팝업', c: '미존재', go: 'alertPopup' },
+      { t: '탭 전환', a: '아이디 찾기 / 비밀번호 재설정 모드 전환', c: '-', api: '-' },
+    ],
+    rules: ['이메일 기반 본인확인', '비밀번호는 직접 노출하지 않고 재설정 링크 발송'],
+    exceptions: ['연속 요청 시 발송 제한(rate limit)'],
+  },
+  {
+    id: 'emptyState', group: 'SYS', title: '빈 상태 (Empty State)', reqId: '공통 UX', apiId: '— (UI)',
+    desc: '목록·검색 결과·알림·메시지가 0건일 때 표시하는 안내 화면. 다음 행동을 유도하는 CTA를 함께 제공한다.',
+    entries: ['main', 'notifications', 'messenger', 'board'],
+    mock: appShell('main', `
+      <div class="wf-page"><div class="wf-h2">내 할당 사건</div>
+        <div class="wf-empty">
+          <div class="eic">🗂️</div>
+          <div class="et">배정된 사건이 없습니다</div>
+          <div class="es">새로운 사건이 배정되면 여기에 표시됩니다.<br>알림을 통해 배정 소식을 받아보세요.</div>
+          <button class="wf-btn ghost" data-goto="notifications">알림 확인</button>
+        </div>
+      </div>`),
+    interactions: [
+      { t: '결과 0건', a: '목록 대신 빈 상태 + 안내문 + CTA 노출', c: 'total=0', api: '-' },
+      { t: '검색 결과 없음', a: '"검색 결과가 없습니다" + 필터 초기화 버튼', c: '-', api: '-' },
+      { t: 'CTA 클릭', a: '관련 화면으로 유도', c: '-', go: 'notifications' },
+    ],
+    rules: ['리스트형 화면마다 빈 상태 정의 필요(사건/알림/메시지/게시판)', '에러와 빈 상태는 구분'],
+    exceptions: ['로딩 중에는 스켈레톤/스피너, 데이터 0건 확정 후 빈 상태'],
+  },
+  {
+    id: 'errorPage', group: 'SYS', title: '오류 / 권한 없음 (403·404)', reqId: 'AGNT-002 외', apiId: '403 / 404',
+    desc: '접근 권한 없음(403), 페이지/리소스 없음(404), 서버 오류(5xx) 등을 사용자 친화적으로 안내하는 전체 화면. 자료 다운로드 권한 거절 등에 사용.',
+    entries: ['fileDownload', 'caseDetail'],
+    mock: `
+    <div class="wf-errpage">
+      <div class="wf-errcode">403</div>
+      <div class="wf-errttl">접근 권한이 없습니다</div>
+      <div class="wf-errsub">이 자료의 열람 가능 수사관으로 지정되지 않았습니다. 권한이 필요하면 사건 담당 관리자에게 문의하세요.</div>
+      <div class="wf-rowend" style="margin-top:14px"><button class="wf-btn ghost" data-goto="main">메인으로</button><button class="wf-btn primary" data-goto="messenger">관리자 문의</button></div>
+    </div>`,
+    interactions: [
+      { t: '403 Forbidden', a: '권한 없음 화면 + 문의 경로 안내', c: '비열람자/RBAC·LBAC 거절', api: 'AGNT-002' },
+      { t: '404 Not Found', a: '"파일/페이지를 찾을 수 없습니다" 화면', c: '리소스 없음', api: 'AGNT-002' },
+      { t: '5xx 서버 오류', a: '"일시적 오류" + 재시도 안내', c: '서버 오류', api: '-' },
+      { t: '[메인으로] 클릭', a: '메인 대시보드 복귀', c: '-', go: 'main' },
+    ],
+    rules: ['오류 코드별 메시지·일러스트 구분', '모든 오류는 로그로 기록(블록체인/DB)'],
+    exceptions: ['민감 정보 노출 없는 일반화된 메시지 사용'],
+  },
+  {
+    id: 'sessionExpired', group: 'SYS', title: '세션 만료 / 토큰 갱신', reqId: 'AUTH-002(token)', apiId: '— (Auth)',
+    desc: 'accessToken 만료 시 refreshToken으로 자동 갱신을 시도하고, 갱신 불가 시 재로그인을 유도하는 모달. 보안 세션 관리의 기본 기능.',
+    entries: ['main', 'caseDetail'],
+    mock: `
+    <div class="wf-center">
+      <div class="wf-modal">
+        <div class="wf-alerticon warn">⏱</div>
+        <div class="wf-h2" style="text-align:center">세션이 만료되었습니다</div>
+        <div class="wf-modaltext" style="text-align:center;font-style:normal">보안을 위해 일정 시간 후 자동 로그아웃됩니다.<br>계속하려면 다시 로그인해주세요.</div>
+        <div class="wf-rowend" style="justify-content:center"><button class="wf-btn primary" data-goto="login">다시 로그인</button></div>
+      </div>
+    </div>`,
+    interactions: [
+      { t: 'accessToken 만료', a: 'refreshToken으로 토큰 자동 갱신 시도', c: 'refresh 유효', api: '-' },
+      { t: '갱신 실패', a: '세션 만료 모달 → 재로그인 유도', c: 'refresh 만료', api: '-', go: 'login' },
+      { t: '작성 중 만료', a: '입력 내용 임시 보관 후 재로그인 안내', c: '미저장 데이터', api: '-' },
+    ],
+    rules: ['accessToken 만료 시 refreshToken 우선 갱신', '갱신 불가 시에만 재로그인 강제'],
+    exceptions: ['민감 작업 중 만료 시 데이터 유실 방지 처리'],
+  },
+];
+
+</script><script>
+const byId = id => SCREENS.find(s => s.id === id);
+let current = 'login';
+
+/* ---- Legend ---- */
+document.getElementById('legend').innerHTML = Object.entries(ROLES)
+  .map(([k,r]) => `<span><i style="background:${r.color}"></i>${r.ko}</span>`).join('');
+
+/* ---- Nav ---- */
+function buildNav(){
+  const groups = {};
+  SCREENS.forEach(s => { (groups[s.group] = groups[s.group] || []).push(s); });
+  let html = '';
+  Object.keys(ROLES).forEach(g => {
+    if(!groups[g]) return;
+    const r = ROLES[g];
+    html += `<div class="navgroup" data-group="${g}"><div class="gh"><i style="background:${r.color}"></i>${r.ko}</div>`;
+    groups[g].forEach(s => {
+      html += `<div class="navitem" data-id="${s.id}" data-search="${(s.title+' '+s.reqId+' '+s.apiId).toLowerCase()}" onclick="select('${s.id}')">
+        <span class="t">${s.title}</span><span class="id">${s.reqId} · ${s.apiId}</span></div>`;
+    });
+    html += `</div>`;
+  });
+  document.getElementById('navlist').innerHTML = html;
+  document.getElementById('cnt').textContent = SCREENS.length;
+}
+function filterNav(q){
+  q = q.trim().toLowerCase();
+  document.querySelectorAll('.navitem').forEach(it => {
+    it.classList.toggle('hide', q && !it.dataset.search.includes(q));
+  });
+  document.querySelectorAll('.navgroup').forEach(g => {
+    const any = [...g.querySelectorAll('.navitem')].some(i => !i.classList.contains('hide'));
+    g.style.display = any ? '' : 'none';
+  });
+}
+
+/* ---- Render selected screen ---- */
+function select(id){
+  const s = byId(id); if(!s) return;
+  current = id;
+  const r = ROLES[s.group];
+
+  document.querySelectorAll('.navitem').forEach(n => n.classList.toggle('active', n.dataset.id === id));
+  const activeItem = document.querySelector('.navitem.active');
+  if(activeItem) activeItem.scrollIntoView({block:'nearest'});
+
+  // crumb
+  document.getElementById('crumb').innerHTML = `
+    <span class="role" style="background:${r.color}22;color:${r.color};border:1px solid ${r.color}55">${r.ko}</span>
+    <h2>${s.title}</h2>
+    <div class="ids">
+      ${s.method ? `<span class="method">${s.method}</span>`:''}
+      <span class="idtag">요구 <b>${s.reqId}</b></span>
+      <span class="idtag">API <b>${s.apiId}</b></span>
+    </div>`;
+  document.getElementById('url').textContent = (s.url || 'platform.local') ;
+  document.getElementById('view').innerHTML = s.mock;
+
+  // flow hint — outgoing links from interactions
+  const outs = [...new Set((s.interactions||[]).filter(i=>i.go).map(i=>i.go))].map(byId).filter(Boolean);
+  document.getElementById('flowhint').innerHTML = outs.length
+    ? `<span class="lbl">다음 화면</span>` + outs.map(o=>`<button onclick="select('${o.id}')">${o.title} →</button>`).join('')
+    : `<span class="lbl">종료 화면 · 진입 전용</span>`;
+
+  // spec
+  renderSpec(s);
+  document.querySelector('.canvas').scrollTop = 0;
+  document.querySelector('.spec').scrollTop = 0;
+}
+
+function renderSpec(s){
+  const entries = (s.entries||[]).map(byId).filter(Boolean);
+  const entriesHtml = entries.length
+    ? entries.map(e=>`<button onclick="select('${e.id}')">${e.title}</button>`).join('')
+    : `<span class="none">— 직접 진입 (로그인/외부)</span>`;
+
+  const inter = (s.interactions||[]).map(i=>`
+    <div class="icard">
+      <div class="trig">${i.t}</div>
+      <div class="act">${i.a}</div>
+      <div class="tags">
+        ${i.c && i.c!=='-' ? `<span class="cnd">조건 · ${i.c}</span>`:''}
+        ${i.api && i.api!=='-' ? `<span class="api">${i.api}</span>`:''}
+        ${i.go ? `<span class="go" onclick="select('${i.go}')">${(byId(i.go)||{}).title||i.go} →</span>`:''}
+      </div>
+    </div>`).join('');
+
+  const rules = (s.rules||[]).map(x=>`<li>${x}</li>`).join('');
+  const exc = (s.exceptions||[]).map(x=>`<li>${x}</li>`).join('');
+
+  document.getElementById('spec').innerHTML = `
+    <h3>화면 개요</h3>
+    <div class="desc">${s.desc}</div>
+
+    <h3>연관 식별자</h3>
+    <div class="kv">
+      <div class="row"><span class="k">요구사항</span><span class="v">${s.reqId}</span></div>
+      <div class="row"><span class="k">API ID</span><span class="v">${s.apiId}</span></div>
+      ${s.method?`<div class="row"><span class="k">METHOD</span><span class="v">${s.method}</span></div>`:''}
+      ${s.url?`<div class="row"><span class="k">URL</span><span class="v">${s.url}</span></div>`:''}
+    </div>
+
+    <h3>진입 경로</h3>
+    <div class="entries">${entriesHtml}</div>
+
+    <h3>인터랙션 명세</h3>
+    <div class="itable">${inter}</div>
+
+    ${rules?`<h3>데이터 · 검증 규칙</h3><ul class="bullets">${rules}</ul>`:''}
+    ${exc?`<h3>예외 · 제약</h3><ul class="bullets warn">${exc}</ul>`:''}
+  `;
+}
+
+/* ---- Global: any element with data-goto navigates ---- */
+document.getElementById('view').addEventListener('click', e => {
+  const t = e.target.closest('[data-goto]');
+  if(t){ e.stopPropagation(); select(t.dataset.goto); }
+});
+
+buildNav();
+select('login');
+</script></body>
+</html>
